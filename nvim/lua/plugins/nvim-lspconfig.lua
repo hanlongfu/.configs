@@ -146,9 +146,6 @@ return { -- LSP Configuration & Plugins
 			-- Some languages (like typescript) have entire language plugins that can be useful:
 			--    https://github.com/pmizio/typescript-tools.nvim
 			--
-			-- But for many setups, the LSP (`tsserver`) will work just fine
-			tsserver = {},
-			--
 			lua_ls = {
 				-- cmd = {...},
 				-- filetypes { ...},
@@ -190,11 +187,17 @@ return { -- LSP Configuration & Plugins
 		local ensure_installed = vim.tbl_keys(servers or {})
 		vim.list_extend(ensure_installed, {
 			"stylua", -- Used to format lua code
+			"eslint",
+			"emmet_language_server",
+			"jsonls",
 			"selene",
 			"shellcheck",
 			"shfmt",
 			"css-lsp",
 			"tailwindcss-language-server",
+			"ts_ls",
+			"zls",
+			"solargraph",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
