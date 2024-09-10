@@ -18,19 +18,8 @@ vim.keymap.set("n", "<leader>es", "<C-w>=", { desc = "[E]qual [S]plit" }) -- mak
 vim.keymap.set("n", "<leader>cs", "<cmd>close<CR>", { desc = "[C]lose [S]plit" }) -- close current split window
 
 -- Remap keys for better tab management
-vim.keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "[t]ab [o]pen" }) -- open new tab
 vim.keymap.set("n", "<tab>", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
 vim.keymap.set("n", "<s-tab>", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
--- additional tab mgmt
-vim.keymap.set("n", "<leader>bt", "<cmd>tab ba<CR>", { desc = "edit all [b]uffers as [t]abs" })
-vim.keymap.set("n", "<leader>bv", "<cmd>vert ba<CR>", { desc = "edit all buffers as [v]ertical [w]indows" })
-vim.keymap.set("n", "<leader>bh", "<cmd>hori ba<CR>", { desc = "edit all buffers as [h]orizontal [w]indows" })
-
--- remap keys for buffer movements (tab to control)
-vim.keymap.set("n", "]b", "<cmd>bnext<CR>", { desc = "move to next buffer" })
-vim.keymap.set("n", "[b", "<cmd>bprev<CR>", { desc = "move to prev buffer" })
-vim.keymap.set("n", "]B", "<cmd>blast<CR>", { desc = "move to last buffer" })
-vim.keymap.set("n", "[B", "<cmd>blast<CR>", { desc = "move to first buffer" })
 
 -- Exit terminal mode in the '<cmd>Telescope terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -58,10 +47,6 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 -- markdown preview
 vim.keymap.set("n", "<leader>mp", "<cmd>MarkdownPreview<cr>", { desc = "[M]arkdown [P]review" })
 vim.keymap.set("n", "<leader>ms", "<cmd>MarkdownPreviewStop<cr>", { desc = "[M]arkdown Preview [S]top" })
-
--- quit without saving
-vim.keymap.set("n", "X", "<cmd>q!<CR>", { desc = "quit without saving current buffer" })
-vim.keymap.set("n", "XX", "<cmd>qa!<CR>", { desc = "force quite all open buffers without saving changes" }) -- equivalent to :q!
 
 -- resize window
 vim.keymap.set("n", "<C-w><left>", "<C-w><")
