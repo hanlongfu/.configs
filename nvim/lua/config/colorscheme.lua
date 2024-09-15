@@ -31,7 +31,14 @@ return {
 				comments = { italic = false },
 				keywords = { italic = false },
 			},
-			dim_inactive = true,
+			on_highlights = function(hl, c)
+				-- default colors too faint for line numbers and comments
+				hl.Comment = { fg = c.dark5 }
+				hl.LineNr = { fg = c.dark5 }
+				hl.LineNrAbove = { fg = c.dark5 }
+				hl.LineNrBelow = { fg = c.dark5 }
+				hl.NvimTreeNormal = { bg = c.bg }
+			end,
 		})
 		vim.cmd.colorscheme("tokyonight")
 	end,
