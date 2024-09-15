@@ -25,7 +25,7 @@ return {
 	priority = 1000,
 	config = function()
 		require("tokyonight").setup({
-			style = "night",
+			style = "moon",
 			transparent = true,
 			styles = {
 				comments = { italic = false },
@@ -37,7 +37,6 @@ return {
 				hl.LineNr = { fg = c.dark5 }
 				hl.LineNrAbove = { fg = c.dark5 }
 				hl.LineNrBelow = { fg = c.dark5 }
-				hl.NvimTreeNormal = { bg = c.bg }
 			end,
 		})
 		vim.cmd.colorscheme("tokyonight")
