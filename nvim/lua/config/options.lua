@@ -14,6 +14,9 @@ vim.g.have_nerd_font = true
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
 
+-- record the last # of commands
+vim.opt.history = 200
+
 -- Make line numbers default
 vim.opt.number = true
 vim.opt.relativenumber = true

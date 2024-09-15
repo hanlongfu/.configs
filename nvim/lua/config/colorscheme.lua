@@ -20,25 +20,13 @@ return {
 	-- 	vim.cmd.colorscheme("kanagawa-wave")
 	-- end,
 
-	"folke/tokyonight.nvim",
-	lazy = false,
+	"bluz71/vim-nightfly-colors",
 	priority = 1000,
+	namee = "nightfly",
+	lazy = false,
 	config = function()
-		require("tokyonight").setup({
-			style = "moon",
-			transparent = true,
-			styles = {
-				comments = { italic = false },
-				keywords = { italic = false },
-			},
-			on_highlights = function(hl, c)
-				-- default colors too faint for line numbers and comments
-				hl.Comment = { fg = c.dark5 }
-				hl.LineNr = { fg = c.dark5 }
-				hl.LineNrAbove = { fg = c.dark5 }
-				hl.LineNrBelow = { fg = c.dark5 }
-			end,
-		})
-		vim.cmd.colorscheme("tokyonight")
+		vim.g.nightflyCursorColor = true
+		vim.g.nightflyTransparent = true
+		vim.cmd.colorscheme("nightfly")
 	end,
 }
