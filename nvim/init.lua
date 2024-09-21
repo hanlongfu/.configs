@@ -56,6 +56,7 @@ require("lazy").setup({
 	require("plugins.leap"),
 	require("plugins.indentmini"),
 	require("plugins.nvim-various-textobjs"),
+	require("plugins.neogit"),
 
 	-- end of plugins, ui= {} is optional config
 }, {
