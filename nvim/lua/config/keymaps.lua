@@ -56,6 +56,10 @@ vim.keymap.set("n", "<C-w><down>", "<C-w>-")
 vim.keymap.set("n", "<leader>gh", "<cmd>Neogit kind=split<CR>", { desc = "Enter Neogit with horizontal split" })
 vim.keymap.set("n", "<leader>gs", "<cmd>Neogit kind=vsplit<CR>", { desc = "Enter Neogit with vertical split" })
 
+-- diffview
+vim.keymap.set("n", "<leader>df", "<cmd>DiffviewOpen<CR>", { desc = "Open Diff View" })
+vim.keymap.set("n", "<leader>dc", "<cmd>DiffviewClose<CR>", { desc = "Open Diff View" })
+
 -- delete line before and after an indented block (for various-textobjs plugin)
 vim.keymap.set("n", "dsi", function()
 	-- select outer indentation
