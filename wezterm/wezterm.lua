@@ -2,13 +2,13 @@ local wezterm = require("wezterm")
 local config = {}
 
 -- font
-config.font = wezterm.font("NotoSansM Nerd Font Mono")
+config.font = wezterm.font("JetBrainsMono Nerd Font Mono", { weight = "Light" })
 config.font_size = 15
 
 --window
 config.window_background_opacity = 0.95
 config.macos_window_background_blur = 20
-config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
+config.window_decorations = "INTEGRATED_BUTTONS|RESIZE|MACOS_FORCE_DISABLE_SHADOW"
 config.integrated_title_button_style = "MacOsNative"
 config.initial_cols = 130
 config.initial_rows = 60
@@ -20,6 +20,7 @@ config.window_padding = {
 	left = 10,
 	bottom = 0,
 }
+config.window_decorations = "RESIZE"
 
 -- tab
 config.use_fancy_tab_bar = false
@@ -40,7 +41,7 @@ config.colors = {
 	visual_bell = "#e3d18a",
 	-- tab
 	tab_bar = {
-		background = "rgba(1,20, 35, 0.9)",
+		background = "rgba(1,20, 35, 0.95)",
 	},
 }
 return config
