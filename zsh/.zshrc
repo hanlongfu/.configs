@@ -15,6 +15,11 @@ export ZSH="$HOME/.oh-my-zsh"
 PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS"
 export PATH
 
+# Path to Deno
+export PATH="$HOME/.deno/bin:$PATH"
+
+# Path to Rust
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
@@ -118,6 +123,11 @@ export EDITOR="nvim"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# ruby path
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
 
 # set up fzf key bindings and fuzzy completion
 eval "$(fzf --zsh)"

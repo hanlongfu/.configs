@@ -28,8 +28,10 @@ return {
 		vim.g.nightflyCursorColor = true
 		vim.g.nightflyTransparent = true
 		vim.cmd.colorscheme("nightfly")
-
+		vim.g.nightflyItalics = false
+		vim.g.nightflyTerminalColors = true
 		vim.api.nvim_set_hl(0, "SignColumn", { bg = "NONE" })
 		vim.api.nvim_set_hl(0, "GutterBg", { bg = "NONE" })
+		vim.cmd([[colorscheme nightfly]])
 	end,
 }

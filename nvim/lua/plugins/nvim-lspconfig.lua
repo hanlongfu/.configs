@@ -194,6 +194,7 @@ return { -- LSP Configuration & Plugins
 			"selene",
 			"shellcheck",
 			"shfmt",
+			"js-debug-adapter",
 			"css-lsp",
 			"tailwindcss-language-server",
 			"ts_ls",
