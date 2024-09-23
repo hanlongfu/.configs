@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 local config = {}
 
 -- font
-config.font = wezterm.font("JetBrainsMono Nerd Font Mono", { weight = "Light" })
+config.font = wezterm.font("NotoSansM Nerd Font Mono")
 config.font_size = 15
 
 --window
@@ -20,7 +20,6 @@ config.window_padding = {
 	left = 10,
 	bottom = 0,
 }
-config.window_decorations = "RESIZE"
 
 -- tab
 config.use_fancy_tab_bar = false
