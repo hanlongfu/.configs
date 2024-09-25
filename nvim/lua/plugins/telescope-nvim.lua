@@ -87,5 +87,13 @@ return { -- Fuzzy Finder (files, lsp, etc)
 		vim.keymap.set("n", "<leader>sn", function()
 			builtin.find_files({ cwd = vim.fn.stdpath("config") })
 		end, { desc = "[S]earch [N]eovim files" })
+
+		-- set the telescope's colors
+		vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "#021528", fg = "#8CB3FF" })
+		vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = "#021528", fg = "#8CB3FF" })
+		vim.api.nvim_set_hl(0, "TelescopePromptNormal", { bg = "#021528", fg = "#8CB3FF" })
+		vim.api.nvim_set_hl(0, "TelescopePromptBorder", { bg = "#021528", fg = "#8CB3FF" })
+		vim.api.nvim_set_hl(0, "TelescopeResultsNormal", { bg = "#021528", fg = "#8CB3FF" })
+		vim.api.nvim_set_hl(0, "TelescopePreviewNormal", { bg = "#021528", fg = "#8CB3FF" })
 	end,
 }
