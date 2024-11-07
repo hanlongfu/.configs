@@ -178,3 +178,11 @@ if [[ -o interactive ]]; then
   stty susp undef 2>/dev/null
   bindkey -s '^Z' 'fg\n'
 fi
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+
+# gives you access to unversioned commands(python, pip)
+export PATH="/opt/homebrew/opt/python@3.13/libexec/bin:$PATH"
+
+# give you access to the versioned commands(python3, pip3)
+export PATH="/opt/homebrew/bin:$PATH"
+
