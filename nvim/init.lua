@@ -58,6 +58,7 @@ require("lazy").setup({
 	require("plugins.nvim-various-textobjs"),
 	require("plugins.neogit"),
 	require("plugins.nvim-dap"),
+	require("plugins.vimtex"),
 
 	-- end of plugins, ui= {} is optional config
 }, {

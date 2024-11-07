@@ -3,7 +3,7 @@ local config = {}
 
 -- font
 config.font = wezterm.font("NotoSansM Nerd Font Mono")
-config.font_size = 15
+config.font_size = 14
 
 --window
 config.window_background_opacity = 0.95
