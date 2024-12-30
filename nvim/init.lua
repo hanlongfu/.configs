@@ -59,6 +59,7 @@ require("lazy").setup({
 	require("plugins.neogit"),
 	require("plugins.nvim-dap"),
 	require("plugins.vimtex"),
+	require("plugins.render-markdown"),
 
 	-- end of plugins, ui= {} is optional config
 }, {

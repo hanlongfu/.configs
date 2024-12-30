@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 local config = {}
 
 -- font
-config.font = wezterm.font("NotoSansM Nerd Font Mono")
+config.font = wezterm.font("MesloLGM Nerd Font Mono")
 config.font_size = 14
 
 --window
@@ -20,24 +20,46 @@ config.window_padding = {
 	left = 10,
 	bottom = 0,
 }
-
 -- tab
 config.use_fancy_tab_bar = false
 config.enable_tab_bar = false
 
 -- color
 config.colors = {
-	background = "#011423",
-	cursor_bg = "#84acfd",
-	cursor_border = "#84acfd",
-	cursor_fg = "#011423",
-	selection_bg = "#0059A2",
-	selection_fg = "#CBE0F0",
-	ansi = { "#214969", "#E52E2E", "#84acfd", "#FFE073", "#30a1ba", "#a277ff", "#4db3b1", "#4db3b1" },
-	brights = { "#214969", "#E52E2E", "#84acfd", "#FFE073", "#A277FF", "#a277ff", "#4db3b1", "#4db3b1" },
+	background = "#011627",
+	foreground = "#bdc1c6",
+	cursor_bg = "#30a1ba",
+	cursor_fg = "#080808",
+	cursor_border = "#9ca1aa",
+	selection_bg = "#b2ceee",
+	selection_fg = "#080808",
+	scrollbar_thumb = "#9ca1aa",
+	split = "#9ca1aa",
+
+	ansi = {
+		"#1d3b53",
+		"#fc514e",
+		"#a1cd5e",
+		"#e3d18a",
+		"#82aaff",
+		"#c792ea",
+		"#7fdbca",
+		"#a1aab8",
+	},
+	brights = {
+		"#7c8f8f",
+		"#ff5874",
+		"#21c7a8",
+		"#ecc48d",
+		"#82aaff",
+		"#ae81ff",
+		"#7fdbca",
+		"#d6deeb",
+	},
 
 	compose_cursor = "#e3d18a",
 	visual_bell = "#e3d18a",
+
 	-- tab
 	tab_bar = {
 		background = "rgba(1,20, 35, 0.95)",
