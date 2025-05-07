@@ -1,0 +1,266 @@
+"""""""""""""""""""
+"General Setting  "
+"""""""""""""""""""
+let mapleader = " "
+set relativenumber
+set scrolloff=10
+set visualbell
+set showcmd
+
+" map redo to U
+noremap U <C-r>
+
+" map black whole register to \
+noremap \ "_
+
+" sync Vim clipboard with OS clipboard (to use cmd+v/c in vim)
+set clipboard^=unnamed,unnamedplus
+
+" jump between angle brackets
+set matchpairs+=<:>
+
+" smart joins with <S-j>
+set ideajoin
+
+"""""""""""""""""""
+" config          "
+"""""""""""""""""""
+" [C]onfig [O]pen using <leader>cc
+noremap <leader>co :edit ~/.ideavimrc<CR>
+
+" [C]onfig [S]ource remap
+noremap <leader>cs :source ~/.ideavimrc<CR>
+
+"""""""""""""""""""
+" search          "
+"""""""""""""""""""
+" case-insensitive search
+set ignorecase
+
+" incremental search
+set incsearch
+
+" enable case-sensitive search when uppercase letter is present
+set smartcase
+
+"""""""""""""""""""
+" word navigation "
+"""""""""""""""""""
+" use w/e/b/ge to jump between words even when it is like: hello\world\this\is\what\I>think
+" or like snake case or camel case words
+
+" move to the beginning of the next word
+map w [w
+
+" move to the end of the next word
+map e ]w
+
+" move to the beginning of the prev word
+map b [b
+
+" move to the end of the prev word
+map ge ]b
+
+"""""""""""""""""""
+" Split          "
+"""""""""""""""""""
+" split navigation
+
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-h> <C-w>h
+map <C-l> <C-w>l
+
+" split screen
+map <leader>sv <Action>(SplitVertically)
+map <leader>sh <Action>(SplitHorizontally)
+map <leader>su <Action>(Unsplit)
+map <leader>sa <Action>(UnsplitAll)
+
+"""""""""""""""""""
+" Navigation      "
+"""""""""""""""""""
+" File Nav
+map <leader>fc <Action>(GotoClass)
+map <leader>ff <Action>(GotoFile)
+map <leader>fs <Action>(GotoSymbol)
+map <leader>fa <Action>(GotoAction)
+map <leader>fp <Action>(FindInPath)
+map <leader>fe <Action>(ReplaceInPath)
+map <leader>fl <Action>(RecentLocations)
+map <leader>fr <Action>(RecentFiles)
+map <leader>fu <Action>(FindUsages)
+
+" Go to code
+nmap <leader>gd <Action>(GotoDeclaration)
+nmap <leader>gy <Action>(GotoTypeDeclaration)
+nmap <leader>gi <Action>(GotoImplementation)
+nmap <leader>gt <Action>(GotoTest)
+nmap <leader>gn <Action>(GotoNextError)
+nmap <leader>gp <Action>(GotoPreviousError)
+nmap <leader>gm <Action>(GotoSuperMethod)
+nmap <leader>gu <Action>(ShowUsages)
+nmap <leader>gb <Action>(Back)
+nmap <leader>gf <Action>(Forward)
+nmap <leader>gv <Action>(ViewSource)
+
+" tab actions
+nnoremap gt :action NextTab<CR>
+nnoremap gT :action PreviousTab<CR>
+nnoremap gx :action CloseContent<CR>
+
+" quick source code action
+map <leader>qi <Action>(QuickImplementation)
+map <leader>qt <Action>(QuickTypeDefinition)
+map <leader>qh <Action>(ShowHoverInfo)
+map <leader>o <Action>(FileStructurePopup)
+
+"""""""""""""""""""
+" Refactoring     "
+"""""""""""""""""""
+map <leader>rn <Action>(RenameElement)
+map <leader>rm <Action>(ExtractMethod)
+map <leader>rv <Action>(IntroduceVariable)
+map <leader>rf <Action>(IntroduceField)
+map <leader>rs <Action>(ChangeSignature)
+map <leader>rr <Action>(Refactorings.QuickListPopupAction)
+
+
+"""""""""""""""""""
+"  Editing        "
+"""""""""""""""""""
+" show intention bulb
+map <leader>ib <Action>(ShowIntentionActions)
+
+" surround with
+map <leader>sw <Action>(SurroundWith)
+
+" code generation based on template
+map <leader>cg <Action>(Generate)
+
+" reformat code
+map <leader><leader> <Action>(ReformatCode)
+
+" Folding
+map <leader>zc :action CollapseAllRegions<CR>
+map <leader>zo :action ExpandAllRegions<CR>
+
+" Display options
+map <leader>dd <action>(ToggleDistractionFreeMode)
+map <leader>dz <action>(ToggleZenMode)
+map <leader>df <action>(ToggleFullScreen)
+
+" move code
+map <A-k> <Action>(MoveLineUp)
+map <A-j> <Action>(MoveLineDown)
+
+" copy
+map <leader>ca <Action>(CopyAbsolutePath)
+map <leader>cn <Action>(CopyFileName)
+map <leader>cp <Action>(CopyContentRootPath)
+
+" create scratch files
+map <leader>ns <Action>(NewScratchFile)
+
+" close current file
+map <leader>qq <Action>(CloseContent)
+
+" close all files
+map <leader>qa <Action>(CloseAllEditors)
+
+" create new file
+map <leader>nf <Action>(NewFile)
+
+" create new directory
+map <leader>nd <Action>(NewDir)
+
+" rename file
+map <leader>re <Action>(RenameFile)
+map <leader>of <Action>(OpenFile)
+
+"""""""""""""""""""
+"  Debugging     "
+"""""""""""""""""""
+map <leader>db <Action>(Debug)
+map <leader>dc <Action>(Stop)
+map <leader>dt <Action>(ToggleLineBreakpoint)
+
+"""""""""""""""""""
+" Plugins         "
+"""""""""""""""""""
+set surround
+set highlightedyank
+set commentary
+
+" s/S + two char to jump to first match, ;/, to forward and backward jump
+set sneak
+
+" ae to represent entire buffer. vae, dae, etc.
+set textobj-entire
+
+" easy-motion remap
+set easymotion
+map <leader>f <Plug>(easymotion-f)
+map <leader>F <Plug>(easymotion-F)
+map <leader>t <Plug>(easymotion-t)
+map <leader>T <Plug>(easymotion-T)
+
+" [T]ree [T]oggle
+set nerdtree
+nnoremap tt :NERDTreeToggle<CR>
+
+" multi-cursor
+set multiple-cursors
+
+" Remap multiple-cursors shortcuts to match terryma/vim-multiple-cursors
+nmap <C-n> <Plug>NextWholeOccurrence
+xmap <C-n> <Plug>NextWholeOccurrence
+nmap g<C-n> <Plug>NextOccurrence
+xmap g<C-n> <Plug>NextOccurrence
+xmap <C-x> <Plug>SkipOccurrence
+xmap <C-p> <Plug>RemoveOccurrence
+
+" Note that the default <A-n> and g<A-n> shortcuts don't work on Mac due to dead keys.
+" <A-n> is used to enter accented text e.g. ñ
+" Feel free to pick your own mappings that are not affected. I like to use <leader>
+nmap <leader><C-n> <Plug>AllWholeOccurrences
+xmap <leader><C-n> <Plug>AllWholeOccurrences
+nmap <leader>g<C-n> <Plug>AllOccurrences
+xmap <leader>g<C-n> <Plug>AllOccurrences
+
+" Which-Key
+set which-key
+set notimeout
+let g:WhichKey_FontSize = 13
+let g:WhichKey_CommandColor = "#b4a7d6"
+let g:WhichKey_PrefixColor = "#f6b26b"
+let g:WhichKey_SortOrder = "by_key_prefix_first"
+
+" customize which-key hint
+" Display
+let g:WhichKeyDesc_display = "<leader>d Display & Debug"
+let g:WhichKeyDesc_zen_mode = "<leader>dz Toggle Zen mode"
+let g:WhichKeyDesc_df_mode = "<leader>dd Toggle Distraction-Free mode"
+let g:WhichKeyDesc_fullscreen = "<leader>df Toggle full screen"
+let g:WhichKeyDesc_debug = "<leader>db Debug code"
+let g:WhichKeyDesc_debug_stop = "<leader>dc Stop debug"
+let g:WhichKeyDesc_debug_breakpoint = "<leader>dt Toggle breakpoint"
+
+" File navigation
+let g:WhichKeyDesc_file_nav = "<leader>f File Navigation"
+let g:WhichKeyDesc_file_nav_findInPath = "<leader>fp Find file in path"
+let g:WhichKeyDesc_file_nav_replaceInPath= "<leader>fe Replace file in path"
+let g:WhichKeyDesc_file_nav_showRecentFiles = "<leader>fr Show recent files"
+let g:WhichKeyDesc_file_nav_showRecentLocations = "<leader>fl Show recent locations"
+let g:WhichKeyDesc_file_nav_goToClass= "<leader>fc Go to class"
+let g:WhichKeyDesc_file_nav_goToFile = "<leader>ff Go to file"
+let g:WhichKeyDesc_file_nav_goToSymbol = "<leader>fs Go to symbol"
+let g:WhichKeyDesc_file_nav_goToAction = "<leader>fa Go to action"
+let g:WhichKeyDesc_file_nav_findUsages = "<leader>fu Find usages"
+
+" Code Navigation
+let g:WhichKeyDesc_code_nav = "<leader>g Code Navigation"
+
+" Refactoring
+let g:WhichKeyDesc_refactor = "<leader>r Refactoring"
+

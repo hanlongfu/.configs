@@ -109,5 +109,8 @@ vim.opt.path:append({ "**" })
 -- ignore node_modules during file name completion
 vim.opt.wildignore:append({ "*/node_modules/*" })
 
+-- jump between angle brackets when pressing %
+vim.opt.matchpairs:append({ "<:>" })
+
 -- keep the cursor in the same position when closing a window
 vim.opt.splitkeep = "cursor"

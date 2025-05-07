@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 local config = {}
 
 -- font
-config.font = wezterm.font("JetBrainsMono Nerd Font Mono")
+config.font = wezterm.font("NotoSansM Nerd Font Mono")
 config.font_size = 13
 
 --window
