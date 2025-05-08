@@ -186,3 +186,5 @@ export PATH="/opt/homebrew/opt/python@3.13/libexec/bin:$PATH"
 # give you access to the versioned commands(python3, pip3)
 export PATH="/opt/homebrew/bin:$PATH"
 
+# scala 
+export PATH="$PATH:$HOME/Library/Application Support/Coursier/bin"

@@ -1,9 +1,9 @@
 return {
-	"cocopon/iceberg.vim",
+	"folke/tokyonight.nvim",
 	lazy = false,
 	priority = 1000,
 	config = function()
 		vim.o.background = "dark"
-		vim.cmd("colorscheme iceberg")
+		vim.cmd("colorscheme tokyonight-night")
 	end,
 }

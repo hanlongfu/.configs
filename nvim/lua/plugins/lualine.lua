@@ -5,7 +5,7 @@ return {
 	init = function()
 		require("lualine").setup({
 			options = {
-				theme = "iceberg_dark",
+				theme = "tokyonight",
 			},
 		})
 	end,
