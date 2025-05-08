@@ -207,7 +207,7 @@ map <leader>T <Plug>(easymotion-T)
 
 " [T]ree [T]oggle
 set nerdtree
-nnoremap tt :NERDTreeToggle<CR>
+nnoremap <leader>ee :NERDTreeToggle<CR>
 
 " multi-cursor
 set multiple-cursors
