@@ -6,12 +6,15 @@ set relativenumber
 set scrolloff=10
 set visualbell
 set showcmd
+set wrap
 
 " map redo to U
-noremap U <C-r>
+nnoremap U <C-r>
 
 " map black whole register to \
-noremap \ "_
+nnoremap \ "_
+
+nnoremap / /\v
 
 " sync Vim clipboard with OS clipboard (to use cmd+v/c in vim)
 set clipboard^=unnamed,unnamedplus
@@ -21,6 +24,9 @@ set matchpairs+=<:>
 
 " smart joins with <S-j>
 set ideajoin
+
+" remap ctrl u to match with vim's ctrl u behavior
+inoremap <C-u> <C-o>d0
 
 """""""""""""""""""
 " config          "

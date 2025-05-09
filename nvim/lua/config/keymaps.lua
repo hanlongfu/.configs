@@ -7,9 +7,9 @@ vim.keymap.set("n", "-", "<C-x>")
 -- remap black hole register to \
 vim.keymap.set("n", "\\", '"_')
 
--- Diagnostic keymaps
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
+-- -- Diagnostic keymaps
+-- vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
+-- vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
 
 -- Remap keys for better Window management
 vim.keymap.set("n", "<leader>vs", "<C-w>v", { desc = "[V]ertical [S]plit" }) -- split window vertically
