@@ -17,6 +17,11 @@ vim.keymap.set("n", "\\C", '"_C', { desc = "Change to end of line to blackhole" 
 -- Delete line to blackhole register
 vim.keymap.set("n", "\\dd", '"_dd', { desc = "Delete line to blackhole" })
 
+-- make vim regex PCRE compliant(less escaping)
+vim.keymap.set("n", "?", "?\\v")
+vim.keymap.set("n", "/", "/\\v")
+vim.keymap.set("c", "%s/", "%sm/")
+
 -- -- Diagnostic keymaps
 -- vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
 -- vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })

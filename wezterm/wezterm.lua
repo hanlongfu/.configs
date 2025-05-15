@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 local config = {}
 
 -- font
-config.font = wezterm.font("NotoSansM Nerd Font Mono")
+config.font = wezterm.font("JetBrainsMono Nerd Font")
 config.font_size = 13
 
 --window
@@ -29,5 +29,5 @@ config.colors = {
 		background = "rgba(22,24,34,0.95)",
 	},
 }
-config.color_scheme = "Gruvbox dark, pale (base16)"
+config.color_scheme = "DanQing (base16)"
 return config

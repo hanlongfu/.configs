@@ -75,6 +75,9 @@ vim.opt.smartcase = true
 -- Keep signcolumn on by default
 vim.opt.signcolumn = "yes"
 
+-- show a column at 80 characters as a guide for long lines
+vim.opt.colorcolumn = "100"
+
 -- Decrease update time
 -- timeoutlen can't be too short, otherwise leader key will not work
 vim.opt.updatetime = 250
@@ -89,6 +92,7 @@ vim.opt.splitbelow = true
 --  and `:help 'listchars'`
 -- vim.opt.list = true
 -- vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+vim.opt.listchars = "tab:^ ,nbsp:¬,extends:»,precedes:«,trail:•"
 
 -- Get rid of tilde in a blank vim window
 vim.opt.fillchars = { eob = " " }
@@ -118,7 +122,9 @@ vim.opt.backspace = { "start", "eol", "indent" }
 -- enabling search in subdirectories
 vim.opt.path:append({ "**" })
 -- ignore node_modules during file name completion
-vim.opt.wildignore:append({ "*/node_modules/*" })
+vim.opt.wildignore:append({
+  "*/node_modules/*,.hg, .svn,*~, *.png, *.jpg, *.gif, *.min.js, *.swp, *.o, vendor, dist, _site",
+})
 
 -- jump between angle brackets when pressing %
 vim.opt.matchpairs:append({ "<:>" })
