@@ -5,27 +5,66 @@ return {
   config = function()
     -- Define Darcula colors based on JetBrains Darcula theme
     require("base16-colorscheme").setup({
-      base00 = "#2B2B2B", -- Background
-      base01 = "#323232", -- Lighter Background
-      base02 = "#214283", -- Selection Background
-      base03 = "#808080", -- Comments, Invisibles
-      base04 = "#D0D0D0", -- Dark Foreground
-      base05 = "#A9B7C6", -- Default Foreground
-      base06 = "#FFC66D", -- Light Foreground
-      base07 = "#FFFFFF", -- Light Background
-      base08 = "#CC7832", -- Variables, XML Tags, Keywords
-      base09 = "#6897BB", -- Integers, Boolean, Constants
-      base0A = "#FFC66D", -- Classes, Markup Bold
-      base0B = "#A5C261", -- Strings
-      base0C = "#6A8759", -- Support, Regular Expressions
-      base0D = "#9876AA", -- Functions, Methods
-      base0E = "#CC7832", -- Keywords
-      base0F = "#A5C261", -- Deprecated, Opening/Closing Embedded Tags
+      base00 = "#262626",
+      base01 = "#3a3a3a",
+      base02 = "#4e4e4e",
+      base03 = "#8a8a8a",
+      base04 = "#949494",
+      base05 = "#dab997",
+      base06 = "#d5c4a1",
+      base07 = "#ebdbb2",
+      base08 = "#d75f5f",
+      base09 = "#ff8700",
+      base0A = "#ffaf00",
+      base0B = "#afaf00",
+      base0C = "#85ad85",
+      base0D = "#83adad",
+      base0E = "#d485ad",
+      base0F = "#d65d0e",
     })
 
-    -- Set the theme
+    -- Set the theme - ensure it's loaded before lualine
     vim.o.background = "dark"
-    vim.cmd("colorscheme base16-darcula")
+
+    -- Create helper function to set lualine theme compatibility
+    _G.setup_lualine_theme = function()
+      -- This will be called before lualine loads
+      -- Create a theme for lualine that matches your colorscheme
+      local colors = {
+        bg = "#262626", -- same as base00
+        fg = "#dab997", -- same as base05
+        yellow = "#ffaf00", -- same as base0A
+        cyan = "#85ad85", -- same as base0C
+        green = "#afaf00", -- same as base0B
+        orange = "#ff8700", -- same as base09
+        magenta = "#d485ad", -- same as base0E
+        blue = "#83adad", -- same as base0D
+        red = "#d75f5f", -- same as base08
+      }
+
+      -- Set the global lualine theme that can be used in lualine config
+      _G.custom_lualine_theme = {
+        normal = {
+          a = { fg = colors.bg, bg = colors.blue, gui = "bold" },
+          b = { fg = colors.fg, bg = colors.bg },
+          c = { fg = colors.fg, bg = colors.bg },
+        },
+        insert = { a = { fg = colors.bg, bg = colors.green, gui = "bold" } },
+        visual = { a = { fg = colors.bg, bg = colors.magenta, gui = "bold" } },
+        replace = { a = { fg = colors.bg, bg = colors.red, gui = "bold" } },
+        inactive = {
+          a = { fg = colors.fg, bg = colors.bg, gui = "bold" },
+          b = { fg = colors.fg, bg = colors.bg },
+          c = { fg = colors.fg, bg = colors.bg },
+        },
+      }
+    end
+
+    -- Setup lualine theme before colorscheme is loaded
+    _G.setup_lualine_theme()
+
+    -- Now apply the colorscheme (after lualine theme is prepared)
+    vim.cmd("colorscheme base16-gruvbox-dark-pale")
 
     -- Create transparency function with EXCLUSIONS for Visual and other highlights
     _G.enable_transparency = function()
@@ -60,68 +99,68 @@ return {
         "TelescopePromptNormal",
       }
 
-      -- Set transparent background for most groups
+      -- Apply transparency to all the groups
       for _, group in ipairs(transparent_groups) do
-        vim.api.nvim_set_hl(0, group, { bg = "NONE", ctermbg = "NONE" })
-      end
-
-      -- IMPORTANT: Apply custom highlights AFTER transparency
-      -- This ensures they won't be overridden
-      vim.api.nvim_set_hl(0, "Visual", { bg = "#45597a", ctermbg = 237 })
-      vim.api.nvim_set_hl(0, "Search", { fg = "#000000", bg = "#FFC66D", ctermfg = 0, ctermbg = 221 })
-      vim.api.nvim_set_hl(0, "IncSearch", { fg = "#000000", bg = "#CC7832", ctermfg = 0, ctermbg = 166 })
-      vim.api.nvim_set_hl(0, "CursorLine", { bg = "#353535", ctermbg = 236 })
-    end
-
-    -- Apply custom highlights first (before transparency)
-    local function apply_custom_highlights()
-      vim.api.nvim_set_hl(0, "Visual", { bg = "#45597a", ctermbg = 237 })
-      vim.api.nvim_set_hl(0, "Search", { fg = "#000000", bg = "#FFC66D", ctermfg = 0, ctermbg = 221 })
-      vim.api.nvim_set_hl(0, "IncSearch", { fg = "#000000", bg = "#CC7832", ctermfg = 0, ctermbg = 166 })
-      vim.api.nvim_set_hl(0, "CursorLine", { bg = "#353535", ctermbg = 236 })
-
-      -- This is the function we need to use instead of base16.hi
-      if vim.fn.exists("*Base16hi") == 1 then
-        vim.fn.Base16hi("Function", vim.g.base16_gui06, "", "", vim.g.base16_cterm06, "", "")
-        vim.fn.Base16hi("Include", vim.g.base16_gui05, "", "", vim.g.base16_cterm05, "", "")
-        vim.fn.Base16hi("Type", vim.g.base16_gui0E, "", "", vim.g.base16_cterm0E, "", "")
-      else
-        -- Fallback if Base16hi isn't available
-        vim.cmd([[
-          highlight Function guifg=#FFC66D ctermfg=221
-          highlight Include guifg=#A9B7C6 ctermfg=250
-          highlight Type guifg=#CC7832 ctermfg=166
-        ]])
+        vim.api.nvim_set_hl(0, group, { bg = "NONE" })
       end
     end
 
-    -- Apply highlights immediately
-    apply_custom_highlights()
-
-    -- Apply transparency immediately (AFTER highlights)
-    _G.enable_transparency()
-
-    -- Create a user command to toggle transparency
-    vim.api.nvim_create_user_command("ToggleTransparency", function()
-      if vim.g.transparency_enabled then
-        vim.g.transparency_enabled = false
-        vim.cmd("colorscheme base16-darcula") -- Re-apply the colorscheme
-        apply_custom_highlights() -- Re-apply highlights
-      else
-        vim.g.transparency_enabled = true
-        _G.enable_transparency() -- This now applies both transparency AND highlights
+    -- disable italics
+    local function disable_italics()
+      -- Get all highlight groups
+      local highlight_groups = vim.fn.getcompletion("", "highlight")
+      for _, group in ipairs(highlight_groups) do
+        if group == "" then
+          goto continue
+        end
+        -- Safely get current highlight
+        local ok, current = pcall(vim.api.nvim_get_hl, 0, { name = group })
+        if not ok or type(current) ~= "table" then
+          goto continue
+        end
+        -- If italic is set (could be true or 1)
+        if current.italic then
+          -- Create new highlight specification
+          local new_hl = {}
+          -- Copy all attributes except italic
+          for k, v in pairs(current) do
+            if k ~= "italic" then
+              new_hl[k] = v
+            end
+          end
+          -- Set the new highlight without italic
+          pcall(vim.api.nvim_set_hl, 0, group, new_hl)
+        end
+        ::continue::
       end
-    end, {})
+    end
+
+    -- Apply immediately
+    disable_italics()
+    -- Store the setting
+    vim.g.italics_disabled = true
+    -- Add to ColorScheme autocmd to ensure italics stay disabled
+    local group = vim.api.nvim_create_augroup("NoItalics", { clear = true })
+    vim.api.nvim_create_autocmd("ColorScheme", {
+      group = group,
+      pattern = "*",
+      callback = function()
+        vim.defer_fn(disable_italics, 10) -- Slight delay to ensure it runs after colorscheme
+      end,
+    })
 
     -- Set transparency as enabled by default
     vim.g.transparency_enabled = true
+
+    -- Initial application of transparency if enabled
+    if vim.g.transparency_enabled then
+      _G.enable_transparency()
+    end
 
     -- Keep your ColorScheme autocmd for safety but modify it
     vim.api.nvim_create_autocmd("ColorScheme", {
       pattern = "*", -- Changed to catch ALL colorscheme changes
       callback = function()
-        apply_custom_highlights() -- Apply our highlights
-
         -- If transparency is enabled, reapply it after highlights
         if vim.g.transparency_enabled then
           _G.enable_transparency()

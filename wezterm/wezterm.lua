@@ -6,8 +6,8 @@ config.font = wezterm.font("NotoSansM Nerd Font Mono")
 config.font_size = 13
 
 --window
-config.window_background_opacity = 0.95
-config.macos_window_background_blur = 35
+config.window_background_opacity = 1
+config.macos_window_background_blur = 40
 config.window_decorations = "INTEGRATED_BUTTONS|RESIZE|MACOS_FORCE_DISABLE_SHADOW"
 config.integrated_title_button_style = "MacOsNative"
 config.initial_cols = 130
@@ -29,5 +29,5 @@ config.colors = {
 		background = "rgba(22,24,34,0.95)",
 	},
 }
-config.color_scheme = "Darcula (base16)"
+config.color_scheme = "Gruvbox dark, pale (base16)"
 return config
