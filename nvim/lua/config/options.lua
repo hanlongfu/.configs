@@ -45,8 +45,19 @@ vim.opt.clipboard = "unnamedplus"
 
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
+vim.opt.expandtab = false
 vim.opt.autoindent = true
+vim.opt.smartindent = true
+
+-- explicitly disable the old cindent and smarttab behavior which can intefere
+vim.opt.cindent = false
+vim.opt.smarttab = false
+
+-- File format settings
+vim.opt.fileformat = "unix"
+
+-- ensure consistent indentation across the entire document
+vim.opt.preserveindent = true
 
 -- Enable break indent
 vim.opt.breakindent = true
@@ -77,7 +88,7 @@ vim.opt.splitbelow = true
 --  See `:help 'list'`
 --  and `:help 'listchars'`
 -- vim.opt.list = true
--- vim.opt.listchars = { tab = " ", trail = "·", nbsp = "␣" }
+-- vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 -- Get rid of tilde in a blank vim window
 vim.opt.fillchars = { eob = " " }

@@ -4,8 +4,18 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set("n", "+", "<C-a>")
 vim.keymap.set("n", "-", "<C-x>")
 
--- remap black hole register to \
-vim.keymap.set("n", "\\", '"_')
+-- Delete to blackhole register
+vim.keymap.set("n", "\\d", '"_d', { desc = "Delete to blackhole" })
+vim.keymap.set("v", "\\d", '"_d', { desc = "Delete selection to blackhole" })
+vim.keymap.set("n", "\\D", '"_D', { desc = "Delete to end of line to blackhole" })
+
+-- Change to blackhole register
+vim.keymap.set("n", "\\c", '"_c', { desc = "Change to blackhole" })
+vim.keymap.set("v", "\\c", '"_c', { desc = "Change selection to blackhole" })
+vim.keymap.set("n", "\\C", '"_C', { desc = "Change to end of line to blackhole" })
+
+-- Delete line to blackhole register
+vim.keymap.set("n", "\\dd", '"_dd', { desc = "Delete line to blackhole" })
 
 -- -- Diagnostic keymaps
 -- vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
@@ -64,50 +74,50 @@ vim.keymap.set("n", "<leader>dF", "<cmd>DiffviewClose<CR>", { desc = "Open Diff 
 
 -- delete line before and after an indented block (for various-textobjs plugin)
 vim.keymap.set("n", "dsi", function()
-	-- select outer indentation
-	require("various-textobjs").indentation("outer", "outer")
+  -- select outer indentation
+  require("various-textobjs").indentation("outer", "outer")
 
-	-- plugin only switches to visual mode when a textobj has been found
-	local indentationFound = vim.fn.mode():find("V")
-	if not indentationFound then
-		return
-	end
+  -- plugin only switches to visual mode when a textobj has been found
+  local indentationFound = vim.fn.mode():find("V")
+  if not indentationFound then
+    return
+  end
 
-	-- dedent indentation
-	vim.cmd.normal({ "<", bang = true })
+  -- dedent indentation
+  vim.cmd.normal({ "<", bang = true })
 
-	-- delete surrounding lines
-	local endBorderLn = vim.api.nvim_buf_get_mark(0, ">")[1]
-	local startBorderLn = vim.api.nvim_buf_get_mark(0, "<")[1]
-	vim.cmd(tostring(endBorderLn) .. " delete") -- delete end first so line index is not shifted
-	vim.cmd(tostring(startBorderLn) .. " delete")
+  -- delete surrounding lines
+  local endBorderLn = vim.api.nvim_buf_get_mark(0, ">")[1]
+  local startBorderLn = vim.api.nvim_buf_get_mark(0, "<")[1]
+  vim.cmd(tostring(endBorderLn) .. " delete") -- delete end first so line index is not shifted
+  vim.cmd(tostring(startBorderLn) .. " delete")
 end, { desc = "Delete Surrounding Indentation" })
 
 -- debugging
 vim.keymap.set("n", "<leader>co", function()
-	require("dap").continue()
+  require("dap").continue()
 end, { desc = "continue debugging" })
 vim.keymap.set("n", "<leader>sv", function()
-	require("dap").step_over()
+  require("dap").step_over()
 end, { desc = "step over" })
 vim.keymap.set("n", "<leader>si", function()
-	require("dap").step_into()
+  require("dap").step_into()
 end, { desc = "step into" })
 vim.keymap.set("n", "<leader>su", function()
-	require("dap").step_out()
+  require("dap").step_out()
 end, { desc = "step out" })
 vim.keymap.set("n", "<Leader>tb", function()
-	require("dap").toggle_breakpoint()
+  require("dap").toggle_breakpoint()
 end, { desc = "toggle breakpoint" })
 vim.keymap.set("n", "<Leader>db", function()
-	require("dap").set_breakpoint()
+  require("dap").set_breakpoint()
 end, { desc = "set breakpoint" })
 vim.keymap.set("n", "<Leader>or", function()
-	require("dap").repl.open()
+  require("dap").repl.open()
 end, { desc = "open repl" })
 vim.keymap.set("n", "<Leader>rl", function()
-	require("dap").run_last()
+  require("dap").run_last()
 end, { desc = "last run" })
 vim.keymap.set("n", "<leader>dt", function()
-	require("dap").terminate()
+  require("dap").terminate()
 end, { desc = "terminate debugging" })

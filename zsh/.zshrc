@@ -183,6 +183,8 @@ export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 # gives you access to unversioned commands(python, pip)
 export PATH="/opt/homebrew/opt/python@3.13/libexec/bin:$PATH"
 
+export PATH="/opt/homebrew/Cellar/cmake/4.0.2/bin:$PATH"
+
 # give you access to the versioned commands(python3, pip3)
 export PATH="/opt/homebrew/bin:$PATH"
 

@@ -29,5 +29,5 @@ config.colors = {
 		background = "rgba(22,24,34,0.95)",
 	},
 }
-config.color_scheme = "tokyonight_moon"
+config.color_scheme = "Darcula (base16)"
 return config
