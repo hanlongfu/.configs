@@ -15,6 +15,10 @@ export ZSH="$HOME/.oh-my-zsh"
 PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS"
 export PATH
 
+
+# set the TERM environment variable
+export TERM=xterm-256color
+
 # Path to Deno
 export PATH="$HOME/.deno/bin:$PATH"
 
@@ -135,6 +139,7 @@ export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
 # set up fzf key bindings and fuzzy completion
 eval "$(fzf --zsh)"
 
+# ~/.config/zsh/.zshrc
 
 # --- setup fzf theme ---
 fg="#CBE0F0"
