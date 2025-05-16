@@ -9,6 +9,8 @@ vim.g.maplocalleader = " "
 -- Set to true if you have a Nerd Font installed
 vim.g.have_nerd_font = true
 
+vim.opt.background = "dark"
+
 -- [[ Setting options ]]
 -- See `:help vim.opt`
 -- NOTE: You can change these options as you wish!
@@ -76,7 +78,7 @@ vim.opt.smartcase = true
 vim.opt.signcolumn = "yes"
 
 -- show a column at 80 characters as a guide for long lines
-vim.opt.colorcolumn = "100"
+vim.opt.colorcolumn = "80"
 
 -- Decrease update time
 -- timeoutlen can't be too short, otherwise leader key will not work
@@ -105,6 +107,10 @@ vim.opt.cursorline = false
 
 -- disable swap file
 vim.opt.swapfile = false
+
+-- have undotree has access to long-running undos
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undofile = true
 
 -- minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10

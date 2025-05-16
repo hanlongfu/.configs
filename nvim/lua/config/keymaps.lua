@@ -22,6 +22,27 @@ vim.keymap.set("n", "?", "?\\v")
 vim.keymap.set("n", "/", "/\\v")
 vim.keymap.set("c", "%s/", "%sm/")
 
+-- in visual mode, move selected lines up and down using K,J
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+-- when joining lines, keep cursor in place
+vim.keymap.set("n", "J", "mzJ`z")
+
+-- keep cursor in place when jump half screen
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
+-- keep cursor in place when searching
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
+
+-- <leader>p to paste over a text (so that the original paste buffer won't be overwritten)
+vim.keymap.set("x", "<leader>p", '"_dP')
+
+-- replace text under cursor
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
 -- -- Diagnostic keymaps
 -- vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
 -- vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })

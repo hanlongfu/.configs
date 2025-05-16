@@ -138,7 +138,7 @@ eval "$(fzf --zsh)"
 
 # --- setup fzf theme ---
 fg="#CBE0F0"
-bg="#011628"
+bg="#0F191F"
 bg_highlight="#143652"
 purple="#B388FF"
 blue="#06BCE4"

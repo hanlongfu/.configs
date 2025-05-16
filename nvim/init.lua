@@ -46,6 +46,7 @@ require("lazy").setup({
   require("plugins.lualine"),
   require("plugins.outline"),
   require("plugins.trouble"),
+  require("plugins.undotree"),
   require("plugins.nvim-tree"),
   require("plugins.bufferline"),
   require("plugins.nvim-autopairs"),

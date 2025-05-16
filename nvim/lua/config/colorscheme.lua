@@ -1,32 +1,36 @@
 return {
-  "wincent/base16-nvim",
+  -- "wincent/base16-nvim",
+  "zenbones-theme/zenbones.nvim",
   lazy = false,
   priority = 1001,
+  dependencies = "rktjmp/lush.nvim",
+  init = function()
+    vim.opt.background = "dark"
+  end,
   config = function()
-    -- Set the theme - ensure it's loaded before lualine
-    vim.o.background = "dark"
-
-    -- Now apply the colorscheme (after lualine theme is prepared)
-    vim.cmd([[colorscheme base16-danqing]])
+    vim.cmd([[colorscheme neobones]])
 
     -- dim the line number
-    vim.api.nvim_set_hl(0, "LineNr", { fg = "#777f7b" })
-    vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#cad8d2", bold = true })
+    -- vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#cad8d2", bold = true })
+    -- vim.api.nvim_set_hl(0, "LineNr", { fg = "#777f7b" })
+
+    -- dim the colorcolumn color
+    vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#3c3836" })
 
     -- Create helper function to set lualine theme compatibility
     _G.setup_lualine_theme = function()
       -- This will be called before lualine loads
       -- Create a theme for lualine that matches your colorscheme
       local colors = {
-        bg = "#2d302f", -- same as base00
-        fg = "#e0f0eF", -- same as base05
-        yellow = "#F9906F", -- same as base0A
-        cyan = "#30DFF3", -- same as base0C
-        green = "#8AB361", -- same as base0B
-        orange = "#B38A61", -- same as base09
-        magenta = "#CCA4E3", -- same as base0E
-        blue = "#B0A4E3", -- same as base0D
-        red = "#F9906F", -- same as base08
+        bg = "#0F191F", -- same as base00
+        fg = "#B279A7", -- same as base05
+        yellow = "#A0FF85", -- same as base0A
+        cyan = "#92A0E2", -- same as base0C
+        green = "#D68C67", -- same as base0B
+        orange = "#E8838F", -- same as base09
+        magenta = "#65B8C1", -- same as base0E
+        blue = "#CF86C1", -- same as base0D
+        red = "#263945", -- same as base08
       }
 
       -- Set the global lualine theme that can be used in lualine config
