@@ -17,6 +17,10 @@ vim.keymap.set("n", "\\C", '"_C', { desc = "Change to end of line to blackhole" 
 -- Delete line to blackhole register
 vim.keymap.set("n", "\\dd", '"_dd', { desc = "Delete line to blackhole" })
 
+-- Map x to delete to black hole register in normal and visual modes
+vim.keymap.set("n", "x", '"_x', { noremap = true, desc = "Delete character (black hole register)" })
+vim.keymap.set("v", "x", '"_x', { noremap = true, desc = "Delete selection (black hole register)" })
+
 -- make vim regex PCRE compliant(less escaping)
 vim.keymap.set("n", "?", "?\\v")
 vim.keymap.set("n", "/", "/\\v")

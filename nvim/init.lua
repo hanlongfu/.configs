@@ -50,7 +50,6 @@ require("lazy").setup({
   require("plugins.nvim-tree"),
   require("plugins.bufferline"),
   require("plugins.nvim-autopairs"),
-  require("plugins.move"),
   require("plugins.vim-tmux-navigator"),
   require("plugins.nvim-surround"),
   require("plugins.rename"),
