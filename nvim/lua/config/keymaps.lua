@@ -1,4 +1,5 @@
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+vim.keymap.set("v", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- increment and decrement
 vim.keymap.set("n", "+", "<C-a>")
