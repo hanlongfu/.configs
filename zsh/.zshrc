@@ -94,12 +94,12 @@ export PATH="/usr/local/go/bin:$PATH"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search command-not-found vi-mode fancy-ctrl-z)
 
 source $ZSH/oh-my-zsh.sh
 
 # enable vi mode
-bindkey -v
+# bindkey -v
 
 # User configuration
 
@@ -192,6 +192,9 @@ export PATH="/opt/homebrew/Cellar/cmake/4.0.2/bin:$PATH"
 
 # give you access to the versioned commands(python3, pip3)
 export PATH="/opt/homebrew/bin:$PATH"
+
+# zig
+export PATH=$PATH:"/usr/bin/zig"
 
 # scala 
 export PATH="$PATH:$HOME/Library/Application Support/Coursier/bin"
