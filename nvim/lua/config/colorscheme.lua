@@ -8,7 +8,8 @@ return {
     vim.opt.background = "dark"
   end,
   config = function()
-    vim.cmd([[colorscheme neobones]])
+    vim.g.zenbones_darkness = "stark"
+    vim.cmd([[colorscheme kanagawabones]])
 
     -- dim the line number
     -- vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#cad8d2", bold = true })
@@ -22,15 +23,15 @@ return {
       -- This will be called before lualine loads
       -- Create a theme for lualine that matches your colorscheme
       local colors = {
-        bg = "#0F191F", -- same as base00
-        fg = "#B279A7", -- same as base05
-        yellow = "#A0FF85", -- same as base0A
-        cyan = "#92A0E2", -- same as base0C
-        green = "#D68C67", -- same as base0B
-        orange = "#E8838F", -- same as base09
-        magenta = "#65B8C1", -- same as base0E
-        blue = "#CF86C1", -- same as base0D
-        red = "#263945", -- same as base08
+        bg = "#1F1F28", -- same as base00
+        fg = "#7EB3C9", -- same as base05
+        yellow = "#9EC967", -- same as base0A
+        cyan = "#7BC2DF", -- same as base0C
+        green = "#F1C982", -- same as base0B
+        orange = "#EC818C", -- same as base09
+        magenta = "#7BC2DF", -- same as base0E
+        blue = "#A98FD2", -- same as base0D
+        red = "#3C3C51", -- same as base08
       }
 
       -- Set the global lualine theme that can be used in lualine config

@@ -3,7 +3,7 @@ local config = {}
 
 -- font
 config.font = wezterm.font("JetBrainsMono Nerd Font")
-config.font_size = 13
+config.font_size = 14
 
 --window
 config.window_background_opacity = 1
@@ -26,8 +26,8 @@ config.enable_tab_bar = false
 
 config.colors = {
 	tab_bar = {
-		background = "rgb(15,25,31)",
+		background = "#181210",
 	},
 }
-config.color_scheme = "neobones_dark"
+config.color_scheme = "kanagawabones"
 return config

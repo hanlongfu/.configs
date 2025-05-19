@@ -77,9 +77,6 @@ vim.opt.smartcase = true
 -- Keep signcolumn on by default
 vim.opt.signcolumn = "yes"
 
--- show a column at 80 characters as a guide for long lines
-vim.opt.colorcolumn = "80"
-
 -- Decrease update time
 -- timeoutlen can't be too short, otherwise leader key will not work
 vim.opt.updatetime = 250
