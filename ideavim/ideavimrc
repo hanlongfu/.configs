@@ -206,8 +206,8 @@ set textobj-entire
 
 " easy-motion remap
 set easymotion
-map <leader>f <Plug>(easymotion-f)
-map <leader>F <Plug>(easymotion-F)
+map <leader>j <Plug>(easymotion-f)
+map <leader>J <Plug>(easymotion-F)
 map <leader>t <Plug>(easymotion-t)
 map <leader>T <Plug>(easymotion-T)
 

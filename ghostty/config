@@ -1,5 +1,5 @@
 theme = kanagawabones
-font-family = JetBrainsMono NFM Regular
+font-family = MesloLGM Nerd Font Mono Regular
 macos-titlebar-style=transparent
 
 
@@ -9,18 +9,4 @@ keybind = cmd+s>x=close_surface
 keybind = cmd+s>n=new_window
 
 
-window-decoration = false
-window-theme = dark 
-initial-cols = 130
-initial-rows = 60
-confirm-close-surface = false  
-macos-native-fullscreen = true
 
-# Window padding
-pad-top = 50
-pad-right = 10
-pad-left = 10
-pad-bottom = 0
-
-# Tab settings
-tab-bar-hidden = true  
