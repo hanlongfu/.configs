@@ -17,14 +17,18 @@ vim.keymap.set("n", "\\C", '"_C', { desc = "Change to end of line to blackhole" 
 -- Delete line to blackhole register
 vim.keymap.set("n", "\\dd", '"_dd', { desc = "Delete line to blackhole" })
 
+-- make vim search and substitution very magic (close to PCRE regex)
+vim.keymap.set("n", "/", "/\\v", { noremap = true, silent = true })
+vim.keymap.set("n", "?", "?\\v", { noremap = true, silent = true })
+vim.keymap.set("v", "/", "/\\v", { noremap = true, silent = true })
+vim.keymap.set("v", "?", "?\\v", { noremap = true, silent = true })
+vim.keymap.set("c", "%s/", "%s/\\v", { noremap = true })
+vim.keymap.set("c", "s/", "s/\\v", { noremap = true })
+vim.keymap.set("c", "g/", "g/\\v", { noremap = true }) -- For global commands
+
 -- Map x to delete to black hole register in normal and visual modes
 vim.keymap.set("n", "x", '"_x', { noremap = true, desc = "Delete character (black hole register)" })
 vim.keymap.set("v", "x", '"_x', { noremap = true, desc = "Delete selection (black hole register)" })
-
--- make vim regex PCRE compliant(less escaping)
-vim.keymap.set("n", "?", "?\\v")
-vim.keymap.set("n", "/", "/\\v")
-vim.keymap.set("c", "%s/", "%sm/")
 
 -- in visual mode, move selected lines up and down using K,J
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")

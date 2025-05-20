@@ -58,8 +58,9 @@ require("lazy").setup({
   require("plugins.nvim-various-textobjs"),
   require("plugins.neogit"),
   require("plugins.nvim-dap"),
-  require("plugins.render-markdown"),
+  require("plugins.tabular"),
   require("plugins.vim-easy-align"),
+  require("plugins.markdown-preview"),
 
   -- end of plugins, ui= {} is optional config
 }, {

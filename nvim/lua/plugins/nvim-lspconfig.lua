@@ -37,7 +37,6 @@ return {
     -- LSP server configurations
     local servers = {
       clangd = {},
-      pyright = {},
       rust_analyzer = {},
       lua_ls = {
         settings = {
@@ -65,7 +64,6 @@ return {
     -- Tool installation with correct package names
     local ensure_installed = {
       "clangd",
-      "pyright",
       "rust-analyzer", -- Corrected package name
       "lua-language-server",
       "stylua",
@@ -82,6 +80,7 @@ return {
       "typescript-language-server",
       "zls",
       "solargraph",
+      "pyright",
     }
 
     -- Set up mason-tool-installer
