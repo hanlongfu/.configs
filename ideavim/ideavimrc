@@ -32,10 +32,10 @@ inoremap <C-u> <C-o>d0
 " config          "
 """""""""""""""""""
 " [C]onfig [O]pen using <leader>cc
-noremap <leader>co :edit ~/.ideavimrc<CR>
+noremap <leader>co :edit ~/.config/ideavim/ideavimrc<CR>
 
 " [C]onfig [S]ource remap
-noremap <leader>cs :source ~/.ideavimrc<CR>
+noremap <leader>cs :source ~/.config/ideavim/ideavimrc<CR>
 
 """""""""""""""""""
 " search          "
@@ -233,40 +233,4 @@ nmap <leader><C-n> <Plug>AllWholeOccurrences
 xmap <leader><C-n> <Plug>AllWholeOccurrences
 nmap <leader>g<C-n> <Plug>AllOccurrences
 xmap <leader>g<C-n> <Plug>AllOccurrences
-
-" Which-Key
-set which-key
-set notimeout
-let g:WhichKey_FontSize = 13
-let g:WhichKey_CommandColor = "#b4a7d6"
-let g:WhichKey_PrefixColor = "#f6b26b"
-let g:WhichKey_SortOrder = "by_key_prefix_first"
-
-" customize which-key hint
-" Display
-let g:WhichKeyDesc_display = "<leader>d Display & Debug"
-let g:WhichKeyDesc_zen_mode = "<leader>dz Toggle Zen mode"
-let g:WhichKeyDesc_df_mode = "<leader>dd Toggle Distraction-Free mode"
-let g:WhichKeyDesc_fullscreen = "<leader>df Toggle full screen"
-let g:WhichKeyDesc_debug = "<leader>db Debug code"
-let g:WhichKeyDesc_debug_stop = "<leader>dc Stop debug"
-let g:WhichKeyDesc_debug_breakpoint = "<leader>dt Toggle breakpoint"
-
-" File navigation
-let g:WhichKeyDesc_file_nav = "<leader>f File Navigation"
-let g:WhichKeyDesc_file_nav_findInPath = "<leader>fp Find file in path"
-let g:WhichKeyDesc_file_nav_replaceInPath= "<leader>fe Replace file in path"
-let g:WhichKeyDesc_file_nav_showRecentFiles = "<leader>fr Show recent files"
-let g:WhichKeyDesc_file_nav_showRecentLocations = "<leader>fl Show recent locations"
-let g:WhichKeyDesc_file_nav_goToClass= "<leader>fc Go to class"
-let g:WhichKeyDesc_file_nav_goToFile = "<leader>ff Go to file"
-let g:WhichKeyDesc_file_nav_goToSymbol = "<leader>fs Go to symbol"
-let g:WhichKeyDesc_file_nav_goToAction = "<leader>fa Go to action"
-let g:WhichKeyDesc_file_nav_findUsages = "<leader>fu Find usages"
-
-" Code Navigation
-let g:WhichKeyDesc_code_nav = "<leader>g Code Navigation"
-
-" Refactoring
-let g:WhichKeyDesc_refactor = "<leader>r Refactoring"
 
