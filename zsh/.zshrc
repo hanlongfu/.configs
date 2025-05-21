@@ -141,6 +141,9 @@ eval "$(fzf --zsh)"
 
 # ~/.config/zsh/.zshrc
 
+# bind ctrl+g to run fg
+bindkey -s '^G' 'fg\n'
+
 # --- setup fzf theme ---
 fg="#CBE0F0"
 bg="#0F191F"
