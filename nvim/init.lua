@@ -55,15 +55,14 @@ require("lazy").setup({
   require("plugins.rename"),
   require("plugins.leap"),
   require("plugins.indentmini"),
-  require("plugins.nvim-various-textobjs"),
   require("plugins.neogit"),
   require("plugins.nvim-dap"),
   require("plugins.tabular"),
-  require("plugins.vim-easy-align"),
   require("plugins.markdown-preview"),
   require("plugins.showkeys"),
   require("plugins.config-timerly"),
   require("plugins.tabout"),
+  require("plugins.which-key"),
 
   -- end of plugins, ui= {} is optional config
 }, {

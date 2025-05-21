@@ -25,8 +25,8 @@ vim.keymap.set("v", "\\c", '"_c', { desc = "Change selection to blackhole" })
 vim.keymap.set("n", "\\C", '"_C', { desc = "Change to end of line to blackhole" })
 
 -- cd to the directory containing the file in the buffer, both local and global flavors
-vim.keymap.set("n", "<leader>cd", ":cd %:h<CR>", { silent = true })
-vim.keymap.set("n", "<leader>lcd", ":lcd %:h<CR>", { silent = true })
+vim.keymap.set("n", "<leader>cd", ":cd %:h<CR>", { desc = "cd to current file directory", silent = true })
+vim.keymap.set("n", "<leader>lcd", ":lcd %:h<CR>", { desc = "cd to current file directory locally", silent = true })
 
 -- Delete line to blackhole register
 vim.keymap.set("n", "\\dd", '"_dd', { desc = "Delete line to blackhole" })
@@ -68,17 +68,27 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("x", "<leader>p", '"_dP')
 
 -- replace text under cursor
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set(
+  "n",
+  "<leader>s",
+  [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+  { desc = "Replace text under cursor" }
+)
+
+--- various text objects
+--- entire buffer: ae or gG
+vim.keymap.set("o", "ae", ":<C-u>normal! ggVG<CR>", { desc = "Entire buffer", silent = true })
+vim.keymap.set("x", "ae", ":<C-u>normal! ggVG<CR>", { desc = "Entire buffer", silent = true })
 
 -- -- Diagnostic keymaps
 -- vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
 -- vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
 
 -- Remap keys for better Window management
-vim.keymap.set("n", "<leader>vs", "<C-w>v", { desc = "[V]ertical [S]plit" }) -- split window vertically
-vim.keymap.set("n", "<leader>hs", "<C-w>s", { desc = "[H]orizontal [S]plit" }) -- split window horizontally
-vim.keymap.set("n", "<leader>es", "<C-w>=", { desc = "[E]qual [S]plit" }) -- make split windows equal width & height
-vim.keymap.set("n", "<leader>cs", "<cmd>close<CR>", { desc = "[C]lose [S]plit" }) -- close current split window
+vim.keymap.set("n", "<leader>vs", "<C-w>v", { desc = "Vertical Split" }) -- split window vertically
+vim.keymap.set("n", "<leader>hs", "<C-w>s", { desc = "Horizontal Split" }) -- split window horizontally
+vim.keymap.set("n", "<leader>es", "<C-w>=", { desc = "Equal Split" }) -- make split windows equal width & height
+vim.keymap.set("n", "<leader>cs", "<cmd>close<CR>", { desc = "Close Split" }) -- close current split window
 
 -- Remap keys for better tab management
 vim.keymap.set("n", "<tab>", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
@@ -108,8 +118,8 @@ vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower win
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
 -- markdown preview
-vim.keymap.set("n", "<leader>mp", "<cmd>MarkdownPreview<cr>", { desc = "[M]arkdown [P]review" })
-vim.keymap.set("n", "<leader>ms", "<cmd>MarkdownPreviewStop<cr>", { desc = "[M]arkdown Preview [S]top" })
+vim.keymap.set("n", "<leader>mp", "<cmd>MarkdownPreview<cr>", { desc = "Markdown Preview" })
+vim.keymap.set("n", "<leader>ms", "<cmd>MarkdownPreviewStop<cr>", { desc = "Markdown Preview Stop" })
 
 -- resize window
 vim.keymap.set("n", "<C-w><left>", "<C-w><")
@@ -123,28 +133,7 @@ vim.keymap.set("n", "<leader>gs", "<cmd>Neogit kind=vsplit<CR>", { desc = "Enter
 
 -- diffview
 vim.keymap.set("n", "<leader>df", "<cmd>DiffviewOpen<CR>", { desc = "Open Diff View" })
-vim.keymap.set("n", "<leader>dF", "<cmd>DiffviewClose<CR>", { desc = "Open Diff View" })
-
--- delete line before and after an indented block (for various-textobjs plugin)
-vim.keymap.set("n", "dsi", function()
-  -- select outer indentation
-  require("various-textobjs").indentation("outer", "outer")
-
-  -- plugin only switches to visual mode when a textobj has been found
-  local indentationFound = vim.fn.mode():find("V")
-  if not indentationFound then
-    return
-  end
-
-  -- dedent indentation
-  vim.cmd.normal({ "<", bang = true })
-
-  -- delete surrounding lines
-  local endBorderLn = vim.api.nvim_buf_get_mark(0, ">")[1]
-  local startBorderLn = vim.api.nvim_buf_get_mark(0, "<")[1]
-  vim.cmd(tostring(endBorderLn) .. " delete") -- delete end first so line index is not shifted
-  vim.cmd(tostring(startBorderLn) .. " delete")
-end, { desc = "Delete Surrounding Indentation" })
+vim.keymap.set("n", "<leader>dF", "<cmd>DiffviewClose<CR>", { desc = "Close Diff View" })
 
 -- debugging
 vim.keymap.set("n", "<leader>co", function()
