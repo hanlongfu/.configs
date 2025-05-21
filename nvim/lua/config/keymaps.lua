@@ -1,8 +1,18 @@
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
-
 -- increment and decrement
 vim.keymap.set("n", "+", "<C-a>")
 vim.keymap.set("n", "-", "<C-x>")
+
+-- exit command history panel (accidentally by typing q:)
+-- hit <Esc> twice to exit and it will clear search highlights as well
+vim.keymap.set("n", "<Esc>", function()
+  if vim.fn.getcmdwintype() ~= "" then
+    -- In command window, exit it
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-c>", true, false, true), "n", false)
+  else
+    -- In normal buffer, clear highlights
+    vim.cmd("nohlsearch")
+  end
+end, { desc = "Clear highlights or exit command window", silent = true })
 
 -- Delete to blackhole register
 vim.keymap.set("n", "\\d", '"_d', { desc = "Delete to blackhole" })
