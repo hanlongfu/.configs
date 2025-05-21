@@ -63,6 +63,7 @@ require("lazy").setup({
   require("plugins.markdown-preview"),
   require("plugins.showkeys"),
   require("plugins.config-timerly"),
+  require("plugins.tabout"),
 
   -- end of plugins, ui= {} is optional config
 }, {

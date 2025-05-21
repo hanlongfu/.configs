@@ -8,21 +8,16 @@ return { -- Autoformat
     },
     formatters_by_ft = {
       lua = { "stylua" },
-      -- Conform can also run multiple formatters sequentially
       python = { "autopep8" },
-      --
-      -- You can use a sub-list to tell conform to run *until* a formatter
-      -- is found.
-      javascript = { "prettierd", "prettier", stop_after_first = true },
-      typescript = { "prettier" },
-      javascriptreact = { "prettier" },
-      typescriptreact = { "prettier" },
+      javascript = { "prettier", stop_after_first = true },
+      typescript = { "prettier", stop_after_first = true },
+      javascriptreact = { "prettier", stop_after_first = true },
+      typescriptreact = { "prettier", stop_after_first = true },
       css = { "prettier" },
       html = { "prettier" },
       yaml = { "prettier" },
       json = { "prettier" },
       graphql = { "prettier" },
-      -- markdown = { "prettier" },
       ruby = { "rubyfmt" },
       rust = { "rustfmt" },
       sql = { "sqlfmt" },
