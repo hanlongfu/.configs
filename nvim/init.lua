@@ -61,6 +61,8 @@ require("lazy").setup({
   require("plugins.tabular"),
   require("plugins.vim-easy-align"),
   require("plugins.markdown-preview"),
+  require("plugins.showkeys"),
+  require("plugins.config-timerly"),
 
   -- end of plugins, ui= {} is optional config
 }, {

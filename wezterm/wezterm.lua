@@ -6,8 +6,8 @@ config.font = wezterm.font("MesloLGM Nerd Font Mono")
 config.font_size = 13
 
 --window
-config.window_background_opacity = 1
--- config.macos_window_background_blur = 20
+-- config.window_background_opacity = 0.92
+-- config.macos_window_background_blur = 40
 config.window_decorations = "INTEGRATED_BUTTONS|RESIZE|MACOS_FORCE_DISABLE_SHADOW"
 config.integrated_title_button_style = "MacOsNative"
 config.initial_cols = 130
@@ -24,10 +24,7 @@ config.window_padding = {
 config.use_fancy_tab_bar = false
 config.enable_tab_bar = false
 
-config.colors = {
-	tab_bar = {
-		background = "#181210",
-	},
-}
-config.color_scheme = "kanagawabones"
+config.color_scheme = "iceberg-dark"
+
+config.colors = {}
 return config

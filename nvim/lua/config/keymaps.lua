@@ -21,6 +21,11 @@ vim.keymap.set("n", "<leader>lcd", ":lcd %:h<CR>", { silent = true })
 -- Delete line to blackhole register
 vim.keymap.set("n", "\\dd", '"_dd', { desc = "Delete line to blackhole" })
 
+-- toggle show keypress on screen
+vim.keymap.set("n", "<leader>ts", ":ShowkeysToggle<CR>", { desc = "Toggle Showkeys", silent = true })
+-- toggle a countdown timer on screen
+vim.keymap.set("n", "<leader>tt", ":TimerlyToggle<CR>", { desc = "Toggle Timerly", silent = true })
+
 -- make vim search and substitution very magic (close to PCRE regex)
 vim.keymap.set("n", "/", "/\\v", { noremap = true })
 vim.keymap.set("n", "?", "?\\v", { noremap = true })
