@@ -14,6 +14,11 @@ vim.keymap.set("n", "<Esc>", function()
   end
 end, { desc = "Clear highlights or exit command window", silent = true })
 
+-- disable showkey when using undotree due to conflict
+vim.keymap.set("n", "<leader>u", function()
+  vim.cmd("UndotreeToggle")
+end)
+
 -- Delete to blackhole register
 vim.keymap.set("n", "\\d", '"_d', { desc = "Delete to blackhole" })
 vim.keymap.set("v", "\\d", '"_d', { desc = "Delete selection to blackhole" })
@@ -78,7 +83,9 @@ vim.keymap.set(
 --- various text objects
 --- entire buffer: ae or gG
 vim.keymap.set("o", "ae", ":<C-u>normal! ggVG<CR>", { desc = "Entire buffer", silent = true })
-vim.keymap.set("x", "ae", ":<C-u>normal! ggVG<CR>", { desc = "Entire buffer", silent = true })
+vim.keymap.set("o", "ae", ":<C-u>normal! ggVG<CR>", { desc = "Entire buffer", silent = true })
+vim.keymap.set("x", "gG", ":<C-u>normal! ggVG<CR>", { desc = "Entire buffer", silent = true })
+vim.keymap.set("x", "gG", ":<C-u>normal! ggVG<CR>", { desc = "Entire buffer", silent = true })
 
 -- -- Diagnostic keymaps
 -- vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
