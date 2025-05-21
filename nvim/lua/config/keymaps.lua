@@ -14,14 +14,18 @@ vim.keymap.set("n", "\\c", '"_c', { desc = "Change to blackhole" })
 vim.keymap.set("v", "\\c", '"_c', { desc = "Change selection to blackhole" })
 vim.keymap.set("n", "\\C", '"_C', { desc = "Change to end of line to blackhole" })
 
+-- cd to the directory containing the file in the buffer, both local and global flavors
+vim.keymap.set("n", "<leader>cd", ":cd %:h<CR>", { silent = true })
+vim.keymap.set("n", "<leader>lcd", ":lcd %:h<CR>", { silent = true })
+
 -- Delete line to blackhole register
 vim.keymap.set("n", "\\dd", '"_dd', { desc = "Delete line to blackhole" })
 
 -- make vim search and substitution very magic (close to PCRE regex)
-vim.keymap.set("n", "/", "/\\v", { noremap = true, silent = true })
-vim.keymap.set("n", "?", "?\\v", { noremap = true, silent = true })
-vim.keymap.set("v", "/", "/\\v", { noremap = true, silent = true })
-vim.keymap.set("v", "?", "?\\v", { noremap = true, silent = true })
+vim.keymap.set("n", "/", "/\\v", { noremap = true })
+vim.keymap.set("n", "?", "?\\v", { noremap = true })
+vim.keymap.set("v", "/", "/\\v", { noremap = true })
+vim.keymap.set("v", "?", "?\\v", { noremap = true })
 vim.keymap.set("c", "%s/", "%s/\\v", { noremap = true })
 vim.keymap.set("c", "s/", "s/\\v", { noremap = true })
 vim.keymap.set("c", "g/", "g/\\v", { noremap = true }) -- For global commands
