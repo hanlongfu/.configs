@@ -15,6 +15,8 @@ export ZSH="$HOME/.oh-my-zsh"
 PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS"
 export PATH
 
+# Add iTerm2 utilities (imgcat) to your PATH
+export PATH="$PATH:/Applications/iTerm.app/Contents/Resources/utilities"
 
 # set the TERM environment variable
 export TERM=xterm-256color
