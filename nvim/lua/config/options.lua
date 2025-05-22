@@ -80,7 +80,7 @@ vim.opt.signcolumn = "yes"
 -- Decrease update time
 -- timeoutlen can't be too short, otherwise leader key will not work
 vim.opt.updatetime = 250
-vim.opt.timeoutlen = 500
+vim.opt.timeoutlen = 300
 
 -- Configure how new splits should be opened
 vim.opt.splitright = true
