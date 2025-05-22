@@ -15,7 +15,7 @@ return {
       "n",
       "<leader>tf",
       ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
-      { noremap = true }
+      { noremap = true, silent = true }
     )
   end,
 }

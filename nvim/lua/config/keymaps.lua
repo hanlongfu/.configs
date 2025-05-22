@@ -92,14 +92,14 @@ vim.keymap.set("x", "gG", ":<C-u>normal! ggVG<CR>", { desc = "Entire buffer", si
 -- vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
 
 -- Remap keys for better Window management
-vim.keymap.set("n", "<leader>vs", "<C-w>v", { desc = "Vertical Split" }) -- split window vertically
-vim.keymap.set("n", "<leader>hs", "<C-w>s", { desc = "Horizontal Split" }) -- split window horizontally
-vim.keymap.set("n", "<leader>es", "<C-w>=", { desc = "Equal Split" }) -- make split windows equal width & height
-vim.keymap.set("n", "<leader>cs", "<cmd>close<CR>", { desc = "Close Split" }) -- close current split window
+vim.keymap.set("n", "<leader>vs", "<C-w>v", { desc = "Vertical Split", silent = true }) -- split window vertically
+vim.keymap.set("n", "<leader>hs", "<C-w>s", { desc = "Horizontal Split", silent = true }) -- split window horizontally
+vim.keymap.set("n", "<leader>es", "<C-w>=", { desc = "Equal Split", silent = true }) -- make split windows equal width & height
+vim.keymap.set("n", "<leader>cs", "<cmd>close<CR>", { desc = "Close Split", silent = true }) -- close current split window
 
 -- Remap keys for better tab management
-vim.keymap.set("n", "<tab>", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
-vim.keymap.set("n", "<s-tab>", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
+vim.keymap.set("n", "<tab>", "<cmd>tabn<CR>", { desc = "Go to next tab", silent = true }) --  go to next tab
+vim.keymap.set("n", "<s-tab>", "<cmd>tabp<CR>", { desc = "Go to previous tab", silent = true }) --  go to previous tab
 
 -- Exit terminal mode in the '<cmd>Telescope terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -135,12 +135,22 @@ vim.keymap.set("n", "<C-w><up>", "<C-w>+")
 vim.keymap.set("n", "<C-w><down>", "<C-w>-")
 
 -- neogit
-vim.keymap.set("n", "<leader>gh", "<cmd>Neogit kind=split<CR>", { desc = "Enter Neogit with horizontal split" })
-vim.keymap.set("n", "<leader>gs", "<cmd>Neogit kind=vsplit<CR>", { desc = "Enter Neogit with vertical split" })
+vim.keymap.set(
+  "n",
+  "<leader>gh",
+  "<cmd>Neogit kind=split<CR>",
+  { desc = "Enter Neogit with horizontal split", silent = true }
+)
+vim.keymap.set(
+  "n",
+  "<leader>gs",
+  "<cmd>Neogit kind=vsplit<CR>",
+  { desc = "Enter Neogit with vertical split", silent = true }
+)
 
 -- diffview
-vim.keymap.set("n", "<leader>df", "<cmd>DiffviewOpen<CR>", { desc = "Open Diff View" })
-vim.keymap.set("n", "<leader>dF", "<cmd>DiffviewClose<CR>", { desc = "Close Diff View" })
+vim.keymap.set("n", "<leader>df", "<cmd>DiffviewOpen<CR>", { desc = "Open Diff View", silent = true })
+vim.keymap.set("n", "<leader>dF", "<cmd>DiffviewClose<CR>", { desc = "Close Diff View", silent = true })
 
 -- debugging
 vim.keymap.set("n", "<leader>co", function()

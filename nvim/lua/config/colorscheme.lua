@@ -37,6 +37,53 @@ return {
     -- end
 
     -----------------
+    ---  add transparency
+    -----------------
+    local function set_transparency()
+      -- Main background transparency
+      vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
+      vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
+      vim.api.nvim_set_hl(0, "NormalNC", { bg = "NONE" })
+
+      -- Sidebar transparency
+      vim.api.nvim_set_hl(0, "NvimTreeNormal", { bg = "NONE" })
+      vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = "NONE" })
+      vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = "NONE" })
+
+      -- Sign column transparency
+      vim.api.nvim_set_hl(0, "SignColumn", { bg = "NONE" })
+      vim.api.nvim_set_hl(0, "LineNr", { bg = "NONE" })
+      vim.api.nvim_set_hl(0, "CursorLineNr", { bg = "NONE" })
+
+      -- Status line transparency (optional)
+      vim.api.nvim_set_hl(0, "StatusLine", { bg = "NONE" })
+      vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "NONE" })
+
+      -- Popup/floating window transparency
+      vim.api.nvim_set_hl(0, "Pmenu", { bg = "NONE" })
+      vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#2d3149" }) -- Keep selection visible
+      vim.api.nvim_set_hl(0, "FloatBorder", { bg = "NONE" })
+
+      -- Terminal transparency
+      vim.api.nvim_set_hl(0, "TermCursor", { bg = "NONE" })
+      vim.api.nvim_set_hl(0, "TermCursorNC", { bg = "NONE" })
+
+      -- Telescope transparency (if you use it)
+      vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "NONE" })
+      vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = "NONE" })
+      vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { bg = "NONE" })
+      vim.api.nvim_set_hl(0, "TelescopePromptBorder", { bg = "NONE" })
+      vim.api.nvim_set_hl(0, "TelescopeResultsBorder", { bg = "NONE" })
+
+      -- Which-key transparency (if you use it)
+      vim.api.nvim_set_hl(0, "WhichKeyFloat", { bg = "NONE" })
+
+      -- Undotree transparency (for your undotree plugin)
+      vim.api.nvim_set_hl(0, "UndotreeNode", { bg = "NONE" })
+      vim.api.nvim_set_hl(0, "UndotreeNodeCurrent", { bg = "NONE" })
+    end
+
+    -----------------
     --- disable italics
     -----------------
 
@@ -70,20 +117,25 @@ return {
       end
     end
 
+    -- apply transparency
+    set_transparency()
     -- Apply immediately
     disable_italics()
     -- Store the setting
     vim.g.italics_disabled = true
+
     -- Add to ColorScheme autocmd to ensure italics stay disabled
-    local group = vim.api.nvim_create_augroup("NoItalics", { clear = true })
+    local group = vim.api.nvim_create_augroup("CustomColorschemeSettings", { clear = true })
     vim.api.nvim_create_autocmd("ColorScheme", {
       group = group,
       pattern = "*",
       callback = function()
-        vim.defer_fn(disable_italics, 10) -- Slight delay to ensure it runs after colorscheme
+        vim.defer_fn(function()
+          set_transparency()
+          disable_italics()
+        end, 10) -- Slight delay to ensure it runs after colorscheme
       end,
     })
-
     -----------------
     --- set lualine color
     -----------------
@@ -91,8 +143,8 @@ return {
       -- This will be called before lualine loads
       -- Create a theme for lualine that matches your colorscheme
       local colors = {
-        bg = "#1C1917", -- same as base00
-        fg = "#B4BDC3", -- same as base05
+        bg = "#161821", -- same as base00
+        fg = "#c6c8d1", -- same as base05
         yellow = "#B77E64", -- same as base0A
         cyan = "#66A5AD", -- same as base0C
         green = "#819B69", -- same as base0B
