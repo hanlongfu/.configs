@@ -19,6 +19,19 @@ vim.keymap.set("n", "<leader>u", function()
   vim.cmd("UndotreeToggle")
 end)
 
+-- location & quickfix
+vim.keymap.set("n", "<leader>cn", ":cnext<CR>", { silent = true, desc = "move to next in the quickfix list" })
+vim.keymap.set("n", "<leader>cp", ":cprev<CR>", { silent = true, desc = "move to next in the quickfix list" })
+vim.keymap.set("n", "<leader>co", ":copen<CR>", { silent = true, desc = "open the quickfix list" })
+vim.keymap.set("n", "<leader>cw", ":cw<CR>", { silent = true, desc = "close the quickfix list" })
+
+-- remap 'q:' which I often mistype
+vim.keymap.set("n", "q:", "<Nop>", { noremap = true })
+vim.keymap.set("c", "q:", "<Nop>", { noremap = true })
+
+-- Set up the actual command history mapping
+vim.keymap.set("n", "<leader>ch", "q:", { desc = "Command history window" })
+
 -- Delete to blackhole register
 vim.keymap.set("n", "\\d", '"_d', { desc = "Delete to blackhole" })
 vim.keymap.set("v", "\\d", '"_d', { desc = "Delete selection to blackhole" })
@@ -68,6 +81,20 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 -- keep cursor in place when searching
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
+
+-- search and replace word across multiple files using nvim-spectre
+vim.keymap.set("n", "<leader>aw", function()
+  require("spectre").open_visual({ select_word = true })
+end, { desc = "Replace word in project" })
+
+vim.keymap.set("n", "<leader>cw", function()
+  require("spectre").open_file_search({ select_word = true })
+end, { desc = "Replace word in current file" })
+
+-- 3. Toggle nvim-spectre
+vim.keymap.set("n", "<leader>ns", function()
+  require("spectre").toggle()
+end, { desc = "Toggle Spectre" })
 
 -- <leader>p to paste over a text (so that the original paste buffer won't be overwritten)
 vim.keymap.set("x", "<leader>p", '"_dP')

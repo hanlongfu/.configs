@@ -64,6 +64,8 @@ require("lazy").setup({
   require("plugins.tabout"),
   require("plugins.which-key"),
   require("plugins.image_preview"),
+  require("plugins.vim-abolish"),
+  require("plugins.nvim-spectre"),
 
   -- end of plugins, ui= {} is optional config
 }, {

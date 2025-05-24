@@ -6,7 +6,7 @@ config.font = wezterm.font("MesloLGM Nerd Font Mono")
 config.font_size = 13
 
 --window
-config.window_background_opacity = 0.93
+config.window_background_opacity = 0.90
 config.macos_window_background_blur = 40
 config.window_decorations = "INTEGRATED_BUTTONS|RESIZE|MACOS_FORCE_DISABLE_SHADOW"
 config.integrated_title_button_style = "MacOsNative"

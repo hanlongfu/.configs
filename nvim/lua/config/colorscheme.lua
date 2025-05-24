@@ -5,6 +5,7 @@ return {
   priority = 1000,
   config = function()
     vim.cmd("colorscheme iceberg")
+    vim.api.nvim_set_hl(0, "visual", { bg = "#4c5279" })
     -----------------
     --- change base colors
     -----------------
@@ -61,7 +62,7 @@ return {
 
       -- Popup/floating window transparency
       vim.api.nvim_set_hl(0, "Pmenu", { bg = "NONE" })
-      vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#2d3149" }) -- Keep selection visible
+      vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#4c5279" }) -- Keep selection visible
       vim.api.nvim_set_hl(0, "FloatBorder", { bg = "NONE" })
 
       -- Terminal transparency
