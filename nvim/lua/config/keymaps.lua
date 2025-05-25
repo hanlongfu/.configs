@@ -22,12 +22,11 @@ end)
 -- location & quickfix
 vim.keymap.set("n", "<leader>cn", ":cnext<CR>", { silent = true, desc = "move to next in the quickfix list" })
 vim.keymap.set("n", "<leader>cp", ":cprev<CR>", { silent = true, desc = "move to next in the quickfix list" })
-vim.keymap.set("n", "<leader>cq", ":copen<CR>", { silent = true, desc = "open the quickfix list" })
-vim.keymap.set("n", "<leader>cc", ":cw<CR>", { silent = true, desc = "close the quickfix list" })
+vim.keymap.set("n", "<leader>cw", ":copen<CR>", { silent = true, desc = "open the quickfix list" })
+vim.keymap.set("n", "<leader>cc", ":ccl<CR>", { silent = true, desc = "close the quickfix list" })
 
--- remap 'q:' which I often mistype
-vim.keymap.set("n", "q:", "<Nop>", { noremap = true })
-vim.keymap.set("c", "q:", "<Nop>", { noremap = true })
+-- disable command line history command (I often mistype)
+vim.keymap.set("n", "q:", "", { noremap = true, silent = true })
 
 -- Set up the actual command history mapping
 vim.keymap.set("n", "<leader>ch", "q:", { desc = "Command history window" })
@@ -83,11 +82,11 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 -- search and replace word across multiple files using nvim-spectre
-vim.keymap.set("n", "<leader>aw", function()
+vim.keymap.set("n", "<leader>rp", function()
   require("spectre").open_visual({ select_word = true })
 end, { desc = "Replace word in project" })
 
-vim.keymap.set("n", "<leader>cw", function()
+vim.keymap.set("n", "<leader>rf", function()
   require("spectre").open_file_search({ select_word = true })
 end, { desc = "Replace word in current file" })
 

@@ -13,8 +13,27 @@ return {
     vim.cmd([[ highlight NvimTreeFolderArrowOpen guifg=#3FC5FF ]])
     vim.cmd([[ highlight SignColumn guibg=NONE]])
 
+    local function on_attach(bufnr)
+      local api = require("nvim-tree.api")
+
+      -- Buffer-specific keymaps (only active in nvim-tree buffer)
+      local opts = { buffer = bufnr, noremap = true, silent = true }
+
+      vim.keymap.set("n", "<leader>m", function()
+        api.tree.marks.bulk.move()
+      end, vim.tbl_extend("force", opts, { desc = "Move bookmarked file" }))
+
+      vim.keymap.set("n", "<leader>c", function()
+        api.tree.change_root_to_node()
+      end, vim.tbl_extend("force", opts, { desc = "Change dir to current dir" }))
+
+      vim.keymap.set("n", "<leader>p", function()
+        api.tree.change_root_to_parent()
+      end, vim.tbl_extend("force", opts, { desc = "Change dir to parent directory" }))
+    end
     -- configure nvim-tree
     nvimtree.setup({
+      on_attach = on_attach,
       view = {
         width = 35,
         relativenumber = true,
@@ -49,7 +68,7 @@ return {
     })
 
     -- set keymaps
-    local keymap = vim.keymap -- for conciseness
+    local keymap = vim.keymap
 
     keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" }) -- toggle file explorer
     keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle file explorer on current file" }) -- toggle file explorer on current file
