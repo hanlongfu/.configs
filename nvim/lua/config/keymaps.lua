@@ -22,8 +22,8 @@ end)
 -- location & quickfix
 vim.keymap.set("n", "<leader>cn", ":cnext<CR>", { silent = true, desc = "move to next in the quickfix list" })
 vim.keymap.set("n", "<leader>cp", ":cprev<CR>", { silent = true, desc = "move to next in the quickfix list" })
-vim.keymap.set("n", "<leader>co", ":copen<CR>", { silent = true, desc = "open the quickfix list" })
-vim.keymap.set("n", "<leader>cw", ":cw<CR>", { silent = true, desc = "close the quickfix list" })
+vim.keymap.set("n", "<leader>cq", ":copen<CR>", { silent = true, desc = "open the quickfix list" })
+vim.keymap.set("n", "<leader>cc", ":cw<CR>", { silent = true, desc = "close the quickfix list" })
 
 -- remap 'q:' which I often mistype
 vim.keymap.set("n", "q:", "<Nop>", { noremap = true })
