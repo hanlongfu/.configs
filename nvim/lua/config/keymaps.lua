@@ -53,15 +53,6 @@ vim.keymap.set("n", "<leader>ts", ":ShowkeysToggle<CR>", { desc = "Toggle Showke
 -- toggle a countdown timer on screen
 vim.keymap.set("n", "<leader>tt", ":TimerlyToggle<CR>", { desc = "Toggle Timerly", silent = true })
 
--- make vim search and substitution very magic (close to PCRE regex)
-vim.keymap.set("n", "/", "/\\v", { noremap = true })
-vim.keymap.set("n", "?", "?\\v", { noremap = true })
-vim.keymap.set("v", "/", "/\\v", { noremap = true })
-vim.keymap.set("v", "?", "?\\v", { noremap = true })
-vim.keymap.set("c", "%s/", "%s/\\v", { noremap = true })
-vim.keymap.set("c", "s/", "s/\\v", { noremap = true })
-vim.keymap.set("c", "g/", "g/\\v", { noremap = true }) -- For global commands
-
 -- Map x to delete to black hole register in normal and visual modes
 vim.keymap.set("n", "x", '"_x', { noremap = true, desc = "Delete character (black hole register)" })
 vim.keymap.set("v", "x", '"_x', { noremap = true, desc = "Delete selection (black hole register)" })
