@@ -53,7 +53,7 @@ return {
 
       -- Sign column transparency
       vim.api.nvim_set_hl(0, "SignColumn", { bg = "NONE" })
-      vim.api.nvim_set_hl(0, "LineNr", { bg = "NONE" })
+      vim.api.nvim_set_hl(0, "LineNr", { fg = "#777474", bg = "NONE" })
       vim.api.nvim_set_hl(0, "CursorLineNr", { bg = "NONE" })
 
       -- Status line transparency (optional)

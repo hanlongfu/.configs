@@ -1,7 +1,15 @@
-theme = kanagawabones
-font-family = MesloLGM Nerd Font Mono Regular
-macos-titlebar-style=transparent
-
+theme = iceberg-dark
+background-opacity = 0.9
+background-blur = 40
+font-family = "MesloLGM Nerd Font Mono"
+font-feature =+feat
+font-thicken = true
+font-thicken-strength = 0
+window-height = 62
+window-width = 162
+window-titlebar-background = #2E3244
+macos-titlebar-style = "transparent"
+cursor-color = #6099C0 
 
 # keybindings
 keybind = cmd+s>r=reload_config
