@@ -29,7 +29,7 @@ return {
         api.tree.change_root_to_node()
       end, opts("Change dir to current dir"))
 
-      vim.keymap.set("n", "<leader>p", function()
+      vim.keymap.set("n", "<leader>z", function()
         api.tree.change_root_to_parent()
       end, opts("Change dir to parent directory"))
     end

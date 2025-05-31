@@ -127,6 +127,7 @@ return {
 
         -- LSP keymappings
         map("gd", require("telescope.builtin").lsp_definitions, "Goto Definition")
+        map("gD", vim.lsp.buf.declaration, "Goto Declaration")
         map("gr", require("telescope.builtin").lsp_references, "Goto References")
         map("gI", require("telescope.builtin").lsp_implementations, "Goto Implementation")
         map("<leader>td", require("telescope.builtin").lsp_type_definitions, "Type Definition")
@@ -135,7 +136,6 @@ return {
         map("<leader>rn", vim.lsp.buf.rename, "Rename")
         map("<leader>ca", vim.lsp.buf.code_action, "Code Action")
         map("K", vim.lsp.buf.hover, "Hover Documentation")
-        map("gD", vim.lsp.buf.declaration, "Goto Declaration")
 
         -- Document highlight
         local client = vim.lsp.get_client_by_id(event.data.client_id)
