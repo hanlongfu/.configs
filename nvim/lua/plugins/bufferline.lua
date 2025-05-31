@@ -19,14 +19,18 @@ return {
           bufferline.style_preset.no_italic,
           bufferline.style_preset.no_bold,
         },
+        separator_style = { "", "" },
         numbers = "id",
-        left_trunk_marker = "",
-        right_trunk_marker = "",
+        left_trunk_marker = "",
+        right_trunk_marker = "",
         show_buffer_icons = true,
         show_tab_indicators = false,
         persist_buffer_sort = true,
         enforce_regular_tabs = true,
-        show_buffer_close_icons = true,
+        indicator = {
+          style = "none",
+        },
+        show_buffer_close_icons = false,
         offsets = {
           {
             filetype = "NvimTree",
@@ -36,15 +40,6 @@ return {
           },
         },
         diagnostics = "nvim_lsp",
-      },
-
-      highlights = {
-        separator = {
-          fg = "#2C2A29",
-        },
-        trunc_marker = {
-          fg = "#C34043",
-        },
       },
     })
   end,

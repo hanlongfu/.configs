@@ -6,36 +6,6 @@ return {
   config = function()
     vim.cmd("colorscheme iceberg")
     vim.api.nvim_set_hl(0, "visual", { bg = "#4c5279" })
-    -----------------
-    --- change base colors
-    -----------------
-    -- local colors = {
-    --   -- Base Colors
-    --   bg = "#2E2826",
-    --   fg = "#DEE7ED",
-    --   fg_dark = "#867A74",
-    --   black = "#403833",
-    --   blue = "#6099C0",
-    --   cyan = "#48a5af", -- Modified cyan color (more vibrant)
-    --   green = "#819B69",
-    --   magenta = "#B278A7",
-    --   orange = "#DE825E",
-    --   purple = "#AB76E5",
-    --   red = "#DE6E7C",
-    --   teal = "#026C8D",
-    --   yellow = "#B87E64",
-    --   terminal_black = "#403833",
-    -- }
-    --
-    -- -- Apply color overrides
-    -- for group, color in pairs({
-    --   Normal = { fg = colors.fg, bg = colors.bg },
-    --   Comment = { fg = "#6E6764" },
-    --   Constant = { fg = colors.cyan }, -- Use new cyan for constants
-    --   -- Add more highlight group overrides as needed
-    -- }) do
-    --   vim.api.nvim_set_hl(0, group, color)
-    -- end
 
     -----------------
     ---  add transparency
@@ -51,9 +21,9 @@ return {
       vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = "NONE" })
       vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = "NONE" })
 
-      -- Sign column transparency
+      -- sign column transparency
       vim.api.nvim_set_hl(0, "SignColumn", { bg = "NONE" })
-      vim.api.nvim_set_hl(0, "LineNr", { fg = "#777474", bg = "NONE" })
+      vim.api.nvim_set_hl(0, "LineNr", { fg = "#6f6d6d", bg = "NONE" })
       vim.api.nvim_set_hl(0, "CursorLineNr", { bg = "NONE" })
 
       -- Status line transparency (optional)
@@ -82,6 +52,19 @@ return {
       -- Undotree transparency (for your undotree plugin)
       vim.api.nvim_set_hl(0, "UndotreeNode", { bg = "NONE" })
       vim.api.nvim_set_hl(0, "UndotreeNodeCurrent", { bg = "NONE" })
+      -- Add these lines to your set_transparency() function
+      vim.api.nvim_set_hl(0, "BufferLineFill", { bg = "NONE" })
+      vim.api.nvim_set_hl(0, "BufferLineBackground", { bg = "NONE" })
+      vim.api.nvim_set_hl(0, "BufferLineTab", { bg = "NONE" })
+      vim.api.nvim_set_hl(0, "BufferLineTabSelected", { bg = "NONE" })
+      vim.api.nvim_set_hl(0, "BufferLineBuffer", { bg = "NONE" })
+      vim.api.nvim_set_hl(0, "BufferLineBufferSelected", { bg = "NONE" })
+      vim.api.nvim_set_hl(0, "BufferLineBufferVisible", { bg = "NONE" })
+
+      -- Also try TabLine groups (bufferline sometimes uses these)
+      vim.api.nvim_set_hl(0, "TabLine", { bg = "NONE" })
+      vim.api.nvim_set_hl(0, "TabLineFill", { bg = "NONE" })
+      vim.api.nvim_set_hl(0, "TabLineSel", { bg = "NONE" })
     end
 
     -----------------
@@ -120,8 +103,10 @@ return {
 
     -- apply transparency
     set_transparency()
+
     -- Apply immediately
     disable_italics()
+
     -- Store the setting
     vim.g.italics_disabled = true
 

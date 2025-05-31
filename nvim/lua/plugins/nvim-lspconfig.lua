@@ -26,9 +26,25 @@ return {
       { name = "DiagnosticSignHint", text = "➤" },
     }
 
+    -- Create a signs table for vim.diagnostic.config
+    local sign_icons = {}
     for _, sign in ipairs(signs) do
-      vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+      -- Extract the severity from the sign name (assuming names like "DiagnosticSignError")
+      local severity_name = sign.name:match("DiagnosticSign(.+)")
+      if severity_name then
+        local severity = vim.diagnostic.severity[severity_name:upper()]
+        if severity then
+          sign_icons[severity] = sign.text
+        end
+      end
     end
+
+    -- Configure diagnostics with the new API
+    vim.diagnostic.config({
+      signs = {
+        text = sign_icons,
+      },
+    })
 
     -- Define capabilities
     local capabilities = vim.lsp.protocol.make_client_capabilities()
