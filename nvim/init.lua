@@ -104,3 +104,6 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     vim.cmd([[highlight VertSplit guifg=#444444 guibg=NONE]])
   end,
 })
+
+-- Ensure marks are properly initialized
+vim.cmd([[set shada=!,'1000,<50,s10,h]])

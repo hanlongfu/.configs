@@ -25,12 +25,6 @@ vim.keymap.set("n", "<leader>cp", ":cprev<CR>", { silent = true, desc = "move to
 vim.keymap.set("n", "<leader>cw", ":copen<CR>", { silent = true, desc = "open the quickfix list" })
 vim.keymap.set("n", "<leader>cc", ":ccl<CR>", { silent = true, desc = "close the quickfix list" })
 
--- disable command line history command (I often mistype)
-vim.keymap.set("n", "q:", "", { noremap = true, silent = true })
-
--- Set up the actual command history mapping
-vim.keymap.set("n", "<leader>ch", "q:", { desc = "Command history window" })
-
 -- Delete to blackhole register
 vim.keymap.set("n", "\\d", '"_d', { desc = "Delete to blackhole" })
 vim.keymap.set("v", "\\d", '"_d', { desc = "Delete selection to blackhole" })

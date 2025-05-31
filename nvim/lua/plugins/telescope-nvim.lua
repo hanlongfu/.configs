@@ -60,8 +60,15 @@ return { -- Fuzzy Finder (files, lsp, etc)
     vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "Search Current Word" })
     vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "Search by Grep" })
     vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "Search Diagnostics" })
-    -- vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" })
-    vim.keymap.set("n", "<leader>sr", builtin.oldfiles, { desc = 'Search Recent Files ("." for repeat)' })
+    vim.keymap.set("n", "<leader>sm", builtin.marks, { desc = "Search Marks" })
+    vim.keymap.set("n", "<leader>sq", builtin.quickfix, { desc = "Search Quickfix list" })
+    vim.keymap.set("n", "<leader>sj", builtin.jumplist, { desc = "Search Jump list" })
+    vim.keymap.set("n", "<leader>sr", builtin.registers, { desc = "Search Registers" })
+    vim.keymap.set("n", "<leader>ch", builtin.command_history, { desc = "Search Command History" })
+    vim.keymap.set("n", "<leader>qh", builtin.search_history, { desc = "Search Search History" })
+    vim.keymap.set("n", "<leader>sp", builtin.man_pages, { desc = "Search manpage entries" })
+    vim.keymap.set("n", "<leader>se", builtin.resume, { desc = "Search Resume" })
+    vim.keymap.set("n", "<leader>sl", builtin.oldfiles, { desc = 'Search Old Files ("." for repeat)' })
     vim.keymap.set("n", "<leader>sb", builtin.buffers, { desc = "Search Existing Buffers" })
 
     -- Slightly advanced example of overriding default behavior and theme
@@ -86,13 +93,5 @@ return { -- Fuzzy Finder (files, lsp, etc)
     vim.keymap.set("n", "<leader>sn", function()
       builtin.find_files({ cwd = vim.fn.stdpath("config") })
     end, { desc = "Search Neovim Files" })
-
-    -- -- set the telescope's colors
-    -- vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "#021528", fg = "#8CB3FF" })
-    -- vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = "#021528", fg = "#8CB3FF" })
-    -- vim.api.nvim_set_hl(0, "TelescopePromptNormal", { bg = "#021528", fg = "#8CB3FF" })
-    -- vim.api.nvim_set_hl(0, "TelescopePromptBorder", { bg = "#021528", fg = "#8CB3FF" })
-    -- vim.api.nvim_set_hl(0, "TelescopeResultsNormal", { bg = "#021528", fg = "#8CB3FF" })
-    -- vim.api.nvim_set_hl(0, "TelescopePreviewNormal", { bg = "#021528", fg = "#8CB3FF" })
   end,
 }
