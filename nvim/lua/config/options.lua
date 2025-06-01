@@ -96,6 +96,8 @@ vim.opt.listchars = "tab:^ ,nbsp:¬,extends:»,precedes:«,trail:•"
 -- Get rid of tilde in a blank vim window
 vim.opt.fillchars = { eob = " " }
 
+vim.opt.fillchars = { vert = "│" }
+
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = "split"
 

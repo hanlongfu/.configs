@@ -6,6 +6,10 @@ return {
   config = function()
     vim.cmd("colorscheme iceberg")
     vim.api.nvim_set_hl(0, "visual", { bg = "#4c5279" })
+    vim.api.nvim_set_hl(0, "DiagnosticSignError", { bg = "NONE" })
+    vim.api.nvim_set_hl(0, "DiagnosticSignwarn", { bg = "NONE" })
+    vim.api.nvim_set_hl(0, "DiagnosticSignInfo", { bg = "NONE" })
+    vim.api.nvim_set_hl(0, "DiagnosticSignHint", { bg = "NONE" })
 
     -----------------
     ---  add transparency
@@ -65,6 +69,18 @@ return {
       vim.api.nvim_set_hl(0, "TabLine", { bg = "NONE" })
       vim.api.nvim_set_hl(0, "TabLineFill", { bg = "NONE" })
       vim.api.nvim_set_hl(0, "TabLineSel", { bg = "NONE" })
+
+      vim.api.nvim_set_hl(0, "WarningMsg", { bg = "NONE" })
+      vim.api.nvim_set_hl(0, "ErrorMsg", { bg = "NONE" })
+      vim.api.nvim_set_hl(0, "DiagnosticHint", { bg = "NONE" })
+
+      -- vertical split line
+      vim.api.nvim_set_hl(0, "WinSeparator", { bg = "NONE", fg = "#5f5e5e" })
+
+      vim.api.nvim_set_hl(0, "GitGutterAdd", { bg = "NONE" })
+      vim.api.nvim_set_hl(0, "GitGutterChange", { bg = "NONE" })
+      vim.api.nvim_set_hl(0, "GitGutterChangeDelete", { bg = "NONE" })
+      vim.api.nvim_set_hl(0, "GitGutterDelete", { bg = "NONE" })
     end
 
     -----------------

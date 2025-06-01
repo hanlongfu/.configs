@@ -94,16 +94,3 @@ require("lazy").setup({
 -- vim: ts=2 sts=2 sw=2 et
 
 -- this turns the separator line between nvim-tree and vim into a thin line
-vim.opt.fillchars = { vert = "│" }
-vim.cmd([[highlight VertSplit guifg=#444444 guibg=NONE]])
-
--- If you need to ensure this happens after colorscheme loading:
-vim.api.nvim_create_autocmd("ColorScheme", {
-  pattern = "*",
-  callback = function()
-    vim.cmd([[highlight VertSplit guifg=#444444 guibg=NONE]])
-  end,
-})
-
--- Ensure marks are properly initialized
-vim.cmd([[set shada=!,'1000,<50,s10,h]])

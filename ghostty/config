@@ -1,6 +1,6 @@
 theme = iceberg-dark
 background-opacity = 0.9
-background-blur = 40
+background-blur = 25
 font-family = "NotoSansM Nerd Font Mono"
 font-feature =+feat
 font-size = 14
@@ -8,12 +8,9 @@ window-height = 62
 window-width = 136
 window-titlebar-background = #2E3244
 macos-titlebar-style = "transparent"
-cursor-color = #00FFFF 
+cursor-color = #B3F6C0 
 
 # keybindings
 keybind = cmd+s>r=reload_config
 keybind = cmd+s>x=close_surface
 keybind = cmd+s>n=new_window
-
-
-
