@@ -19,7 +19,7 @@ return {
           bufferline.style_preset.no_italic,
           bufferline.style_preset.no_bold,
         },
-        separator_style = { "", "" },
+        separator_style = { "", "" },
         numbers = "id",
         left_trunk_marker = "",
         right_trunk_marker = "",

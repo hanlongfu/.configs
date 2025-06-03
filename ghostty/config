@@ -4,6 +4,7 @@ background-blur = 25
 font-family = "NotoSansM Nerd Font Mono"
 font-feature =+feat
 font-size = 14
+title = "~"
 window-height = 62
 window-width = 136
 window-titlebar-background = #2E3244

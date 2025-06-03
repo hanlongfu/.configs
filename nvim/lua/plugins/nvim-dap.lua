@@ -21,7 +21,7 @@ return {
       --------------------
       -- Python        --
       --------------------
-      require("dap-python").setup("python")
+      require("dap-python").setup("~/.virtualenvs/debugpy/bin/python")
       -- Add configurations for Python
       dap.configurations.python = {
         {

@@ -106,6 +106,7 @@ vim.keymap.set("x", "gG", ":<C-u>normal! ggVG<CR>", { desc = "Entire buffer", si
 vim.keymap.set("n", "<leader>vs", "<C-w>v", { desc = "Vertical Split", silent = true }) -- split window vertically
 vim.keymap.set("n", "<leader>hs", "<C-w>s", { desc = "Horizontal Split", silent = true }) -- split window horizontally
 vim.keymap.set("n", "<leader>es", "<C-w>=", { desc = "Equal Split", silent = true }) -- make split windows equal width & height
+vim.keymap.set("n", "<leader>as", "<C-w>o", { desc = "Keep the active window", silent = true })
 vim.keymap.set("n", "<leader>cs", "<cmd>close<CR>", { desc = "Close Split", silent = true }) -- close current split window
 
 -- Remap keys for better tab management
@@ -164,30 +165,38 @@ vim.keymap.set("n", "<leader>df", "<cmd>DiffviewOpen<CR>", { desc = "Open Diff V
 vim.keymap.set("n", "<leader>dF", "<cmd>DiffviewClose<CR>", { desc = "Close Diff View", silent = true })
 
 -- debugging
-vim.keymap.set("n", "<leader>co", function()
+vim.keymap.set("n", "<leader>dc", function()
   require("dap").continue()
 end, { desc = "continue debugging" })
-vim.keymap.set("n", "<leader>sv", function()
+
+vim.keymap.set("n", "<leader>dv", function()
   require("dap").step_over()
 end, { desc = "step over" })
-vim.keymap.set("n", "<leader>si", function()
+
+vim.keymap.set("n", "<leader>di", function()
   require("dap").step_into()
 end, { desc = "step into" })
-vim.keymap.set("n", "<leader>su", function()
+
+vim.keymap.set("n", "<leader>du", function()
   require("dap").step_out()
 end, { desc = "step out" })
-vim.keymap.set("n", "<Leader>tb", function()
+
+vim.keymap.set("n", "<Leader>dg", function()
   require("dap").toggle_breakpoint()
 end, { desc = "toggle breakpoint" })
+
 vim.keymap.set("n", "<Leader>db", function()
   require("dap").set_breakpoint()
 end, { desc = "set breakpoint" })
-vim.keymap.set("n", "<Leader>or", function()
+
+vim.keymap.set("n", "<Leader>dr", function()
   require("dap").repl.open()
 end, { desc = "open repl" })
-vim.keymap.set("n", "<Leader>rl", function()
+
+vim.keymap.set("n", "<Leader>dl", function()
   require("dap").run_last()
 end, { desc = "last run" })
+
 vim.keymap.set("n", "<leader>dt", function()
   require("dap").terminate()
 end, { desc = "terminate debugging" })
