@@ -146,6 +146,8 @@ eval "$(fzf --zsh)"
 # bind ctrl+g to run fg
 bindkey -s '^G' 'fg\n'
 
+export PATH="/Applications/Racket v8.14/bin:$PATH"
+
 # --- setup fzf theme ---
 fg="#CBE0F0"
 bg="#0F191F"

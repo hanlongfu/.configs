@@ -3,7 +3,7 @@ return {
   config = function()
     require("lualine").setup({
       options = {
-        theme = _G.custom_lualine_theme or "auto", -- Use our custom theme if available
+        theme = "jellybeans",
       },
     })
   end,

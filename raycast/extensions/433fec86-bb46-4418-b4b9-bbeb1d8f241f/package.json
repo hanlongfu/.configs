@@ -5,7 +5,10 @@
   "description": "Compare content of two texts",
   "icon": "icon.png",
   "author": "destiner",
-  "categories": ["Data", "Developer Tools"],
+  "categories": [
+    "Data",
+    "Developer Tools"
+  ],
   "license": "MIT",
   "commands": [
     {
@@ -36,5 +39,9 @@
     "dev": "ray develop",
     "fix-lint": "ray lint --fix",
     "lint": "ray lint"
-  }
+  },
+  "platforms": [
+    "macOS",
+    "Windows"
+  ]
 }
