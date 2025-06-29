@@ -66,6 +66,7 @@ require("lazy").setup({
   require("plugins.image_preview"),
   require("plugins.vim-abolish"),
   require("plugins.nvim-spectre"),
+  require("plugins.neoscroll"),
 
   -- end of plugins, ui= {} is optional config
 }, {

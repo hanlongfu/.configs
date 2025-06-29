@@ -14,21 +14,20 @@ return {
     bufferline.setup({
       options = {
         mode = "buffers",
+        separator_style = { "", "" },
         always_show_bufferline = false,
         style_preset = {
           bufferline.style_preset.no_italic,
           bufferline.style_preset.no_bold,
         },
-        separator_style = { "", "" },
         numbers = "id",
-        left_trunk_marker = "",
-        right_trunk_marker = "",
-        show_buffer_icons = true,
+        show_buffer_icons = false,
         show_tab_indicators = false,
         persist_buffer_sort = true,
         enforce_regular_tabs = true,
         indicator = {
-          style = "none",
+          icon = "▎",
+          style = "icon",
         },
         show_buffer_close_icons = false,
         offsets = {
@@ -40,6 +39,11 @@ return {
           },
         },
         diagnostics = "nvim_lsp",
+      },
+      highlights = {
+        indicator_selected = {
+          fg = "#7aa2f7",
+        },
       },
     })
   end,
