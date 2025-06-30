@@ -1,12 +1,11 @@
 return {
-  "wtfox/jellybeans.nvim",
+  "bluz71/vim-nightfly-colors",
+  name = "nightfly",
   lazy = false,
   priority = 1000,
   config = function()
-    require("jellybeans").setup({
-      transparent = true,
-      italics = false,
-    })
-    vim.cmd.colorscheme("jellybeans")
+    vim.g.nightflyItalics = false
+    vim.g.nightflyTransparent = true
+    vim.cmd.colorscheme("nightfly")
   end,
 }

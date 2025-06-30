@@ -3,7 +3,8 @@ return {
   config = function()
     require("lualine").setup({
       options = {
-        theme = "jellybeans",
+        theme = "nightfly",
+        globalstatus = true, --single status line at bottom instead of per-window
       },
     })
   end,

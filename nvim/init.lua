@@ -47,8 +47,8 @@ require("lazy").setup({
   require("plugins.outline"),
   require("plugins.trouble"),
   require("plugins.undotree"),
-  require("plugins.nvim-tree"),
-  require("plugins.bufferline"),
+  -- require("plugins.nvim-tree"),
+  -- require("plugins.bufferline"),
   require("plugins.nvim-autopairs"),
   require("plugins.vim-tmux-navigator"),
   require("plugins.nvim-surround"),
@@ -67,6 +67,7 @@ require("lazy").setup({
   require("plugins.vim-abolish"),
   require("plugins.nvim-spectre"),
   require("plugins.neoscroll"),
+  require("plugins.oil"),
 
   -- end of plugins, ui= {} is optional config
 }, {
