@@ -81,7 +81,7 @@ vim.keymap.set("n", "<leader>ns", function()
 end, { desc = "Toggle Spectre" })
 
 -- go to parent directory in oil.nvim
-vim.keymap.set("n", "-", "<cmd>Oil --float<cr>", { desc = "Open oil in current file's directory" })
+vim.keymap.set("n", "-", "<cmd>Oil --float<CR>", { desc = "Open oil in current file's directory" })
 
 -- <leader>p to paste over a text (so that the original paste buffer won't be overwritten)
 vim.keymap.set("x", "<leader>p", '"_dP')

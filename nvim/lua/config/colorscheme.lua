@@ -5,7 +5,7 @@ return {
   priority = 1000,
   config = function()
     vim.g.nightflyItalics = false
-    vim.g.nightflyTransparent = true
+    vim.g.moonflyTransparent = false
     vim.cmd.colorscheme("nightfly")
   end,
 }

@@ -10,11 +10,9 @@ return {
         border = "rounded",
       },
       win_options = {
-        winhighlight = "Normal:OilFloat,NormalFloat:OilFloat,FloatBorder:OilBorder,EndOfBuffer:OilFloat,SignColumn:OilFloat,ColorColumn:OilFloat,CursorLine:OilFloat",
+        winhighlight = "Normal:Normal,NormalFloat:Normal,FloatBorder:Normal",
       },
     })
-
-    vim.api.nvim_set_hl(0, "OilBorder", { bg = "none", fg = "#89b4fa" })
   end,
   dependencies = {
     { "echasnovski/mini.icons", opts = {} },
