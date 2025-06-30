@@ -13,6 +13,7 @@ return {
         winhighlight = "Normal:Normal,NormalFloat:Normal,FloatBorder:Normal",
       },
     })
+    vim.api.nvim_set_hl(0, "OilDir", { fg = "#c5c8c6" })
   end,
   dependencies = {
     { "echasnovski/mini.icons", opts = {} },
