@@ -6,8 +6,8 @@ return {
   config = function()
     -- Define color palette
     local colors = {
-      bg = "#292c33",
-      fg = "#c5c8c6",
+      bg = "#272c33",
+      fg = "#dee2e8",
       red = "#bf6b69",
       green = "#b7bd73",
       yellow = "#e9c880",
@@ -109,6 +109,7 @@ return {
     hl("Underlined", { fg = colors.blue, underline = true })
     hl("Ignore", { fg = colors.comment })
     hl("Error", { fg = colors.red, bg = colors.bg })
+    hl("ErrorMsg", { fg = colors.bright_red, bg = colors.bg, bold = true })
     hl("Todo", { fg = colors.yellow, bg = colors.bg, bold = true })
 
     -- Treesitter highlights
