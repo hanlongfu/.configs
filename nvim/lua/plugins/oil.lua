@@ -11,11 +11,9 @@ return {
       },
       win_options = {
         winhighlight = "Normal:OilFloat,NormalFloat:OilFloat,FloatBorder:OilBorder,EndOfBuffer:OilFloat,SignColumn:OilFloat,ColorColumn:OilFloat,CursorLine:OilFloat",
-        -- winblend = 10, -- Try with 0 blend first
       },
     })
 
-    vim.api.nvim_set_hl(0, "OilFloat", { bg = "none", fg = "none" })
     vim.api.nvim_set_hl(0, "OilBorder", { bg = "none", fg = "#89b4fa" })
   end,
   dependencies = {
