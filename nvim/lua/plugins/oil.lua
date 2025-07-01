@@ -3,6 +3,16 @@ return {
   lazy = false,
   config = function()
     require("oil").setup({
+      columns = {
+        "icon",
+        "size",
+      },
+      view_options = {
+        show_hidden = true,
+        is_hidden_file = function(name, bufnr)
+          return vim.startswith(name, ".")
+        end,
+      },
       float = {
         padding = 4,
         max_width = math.floor(vim.o.columns * 0.7),
