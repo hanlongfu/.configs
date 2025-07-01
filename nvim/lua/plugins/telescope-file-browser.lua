@@ -6,6 +6,7 @@ return {
     require("telescope").setup({
       extensions = {
         file_browser = {
+          display_stat = false,
           hidden = { file_browser = true, folder_browser = true },
         },
       },

@@ -42,6 +42,9 @@ vim.keymap.set("n", "<leader>lcd", ":lcd %:h<CR>", { desc = "cd to current file 
 -- Delete line to blackhole register
 vim.keymap.set("n", "\\dd", '"_dd', { desc = "Delete line to blackhole" })
 
+-- map gb to switch between current and prev buffers
+vim.keymap.set("n", "<leader>bb", "<C-^>", { desc = "Switch between current and previous buffer" })
+
 -- toggle show keypress on screen
 vim.keymap.set("n", "<leader>ts", ":ShowkeysToggle<CR>", { desc = "Toggle Showkeys", silent = true })
 -- toggle a countdown timer on screen
@@ -75,7 +78,7 @@ vim.keymap.set("n", "<leader>rf", function()
   require("spectre").open_file_search({ select_word = true })
 end, { desc = "Replace word in current file" })
 
--- 3. Toggle nvim-spectre
+-- Toggle nvim-spectre
 vim.keymap.set("n", "<leader>ns", function()
   require("spectre").toggle()
 end, { desc = "Toggle Spectre" })
@@ -113,8 +116,8 @@ vim.keymap.set("n", "<leader>as", "<C-w>o", { desc = "Keep the active window", s
 vim.keymap.set("n", "<leader>cs", "<cmd>close<CR>", { desc = "Close Split", silent = true }) -- close current split window
 
 -- Remap keys for better tab management
-vim.keymap.set("n", "<tab>", "<cmd>tabn<CR>", { desc = "Go to next tab", silent = true }) --  go to next tab
-vim.keymap.set("n", "<s-tab>", "<cmd>tabp<CR>", { desc = "Go to previous tab", silent = true }) --  go to previous tab
+-- vim.keymap.set("n", "<tab>", "<cmd>tabn<CR>", { desc = "Go to next tab", silent = true }) --  go to next tab
+-- vim.keymap.set("n", "<s-tab>", "<cmd>tabp<CR>", { desc = "Go to previous tab", silent = true }) --  go to previous tab
 
 -- Exit terminal mode in the '<cmd>Telescope terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
