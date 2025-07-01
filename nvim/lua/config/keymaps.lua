@@ -55,8 +55,8 @@ vim.keymap.set("n", "x", '"_x', { noremap = true, desc = "Delete character (blac
 vim.keymap.set("v", "x", '"_x', { noremap = true, desc = "Delete selection (black hole register)" })
 
 -- in visual mode, move selected lines up and down using K,J
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+-- vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+-- vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- when joining lines, keep cursor in place
 vim.keymap.set("n", "J", "mzJ`z")
