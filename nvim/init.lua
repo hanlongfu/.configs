@@ -68,6 +68,7 @@ require("lazy").setup({
   require("plugins.nvim-spectre"),
   require("plugins.neoscroll"),
   require("plugins.oil"),
+  require("plugins.auto-session"),
 
   -- end of plugins, ui= {} is optional config
 }, {

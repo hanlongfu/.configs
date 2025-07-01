@@ -69,6 +69,12 @@ vim.opt.wrap = false
 
 -- Save undo history
 vim.opt.undofile = true
+vim.opt.undodir = vim.fn.expand("~/.local/share/nvim/undo")
+vim.opt.undolevels = 1000
+vim.opt.undoreload = 10000
+
+-- for better ression management
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
 -- Case-insensitive searching UNLESS \C or capital in search
 vim.opt.ignorecase = true
@@ -94,9 +100,7 @@ vim.opt.splitbelow = true
 vim.opt.listchars = "tab:^ ,nbsp:¬,extends:»,precedes:«,trail:•"
 
 -- Get rid of tilde in a blank vim window
-vim.opt.fillchars = { eob = " " }
-
-vim.opt.fillchars = { vert = "│" }
+vim.opt.fillchars = { eob = " ", vert = "│" }
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = "split"
@@ -106,10 +110,6 @@ vim.opt.cursorline = false
 
 -- disable swap file
 vim.opt.swapfile = false
-
--- have undotree has access to long-running undos
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vim.opt.undofile = true
 
 -- minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
