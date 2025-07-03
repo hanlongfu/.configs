@@ -4,6 +4,7 @@ return {
   priority = 1000,
   dir = vim.fn.stdpath("config"), -- Points to your config directory
   config = function()
+    vim.g.disable_italics = 1
     -- Define color palette
     local colors = {
       bg = "#272c33",
@@ -75,7 +76,7 @@ return {
     hl("Whitespace", { fg = colors.comment })
 
     -- Syntax highlighting
-    hl("Comment", { fg = colors.comment, italic = true })
+    hl("Comment", { fg = colors.comment, italic = false })
     hl("Constant", { fg = colors.red })
     hl("String", { fg = colors.green })
     hl("Character", { fg = colors.green })
@@ -151,7 +152,7 @@ return {
     hl("@tag", { fg = colors.red })
     hl("@tag.attribute", { fg = colors.cyan })
     hl("@tag.delimiter", { fg = colors.fg })
-    hl("@comment", { fg = colors.comment, italic = true })
+    hl("@comment", { fg = colors.comment, italic = false })
     hl("@punctuation.delimiter", { fg = colors.fg })
     hl("@punctuation.bracket", { fg = colors.fg })
     hl("@punctuation.special", { fg = colors.cyan })
@@ -185,24 +186,6 @@ return {
     hl("TelescopeSelection", { fg = colors.fg, bg = colors.selection })
     hl("TelescopeSelectionCaret", { fg = colors.cyan, bg = colors.selection })
     hl("TelescopeMatching", { fg = colors.yellow, bold = true })
-
-    -- NvimTree highlights
-    hl("NvimTreeNormal", { fg = colors.fg, bg = colors.bg })
-    hl("NvimTreeFolderName", { fg = colors.blue })
-    hl("NvimTreeFolderIcon", { fg = colors.blue })
-    hl("NvimTreeOpenedFolderName", { fg = colors.blue })
-    hl("NvimTreeEmptyFolderName", { fg = colors.comment })
-    hl("NvimTreeIndentMarker", { fg = colors.comment })
-    hl("NvimTreeVertSplit", { fg = colors.comment })
-    hl("NvimTreeRootFolder", { fg = colors.magenta, bold = true })
-    hl("NvimTreeSymlink", { fg = colors.cyan })
-    hl("NvimTreeStatuslineNc", { fg = colors.comment, bg = colors.bg })
-    hl("NvimTreeGitDirty", { fg = colors.yellow })
-    hl("NvimTreeGitNew", { fg = colors.green })
-    hl("NvimTreeGitDeleted", { fg = colors.red })
-    hl("NvimTreeSpecialFile", { fg = colors.cyan })
-    hl("NvimTreeImageFile", { fg = colors.magenta })
-    hl("NvimTreeMarkdownFile", { fg = colors.blue })
 
     -- Which-key highlights
     hl("WhichKey", { fg = colors.blue })
