@@ -149,12 +149,12 @@ bindkey -s '^G' 'fg\n'
 export PATH="/Applications/Racket v8.14/bin:$PATH"
 
 # --- setup fzf theme ---
-fg="#CBE0F0"
-bg="#0F191F"
+fg="#dee2e8"
+bg="#272c33"
 bg_highlight="#143652"
 purple="#B388FF"
-blue="#06BCE4"
-cyan="#2CF9ED"
+blue="#83a5d6"
+cyan="#83beb1"
 
 export FZF_DEFAULT_OPTS="--color=fg:${fg},bg:${bg},hl:${purple},fg+:${fg},bg+:${bg_highlight},hl+:${purple},info:${blue},prompt:${cyan},pointer:${cyan},marker:${cyan},spinner:${cyan},header:${cyan}"
 
