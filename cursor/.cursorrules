@@ -1,0 +1,186 @@
+### Core Principles
+
+1. Task-Driven Development: All code changes must be associated with a defined task
+2. Documentation for Future Self: Document decisions and complex implementations for your future self
+3. Quality Over Speed: Better to build it right than to fix it later
+4. DRY (Don't Repeat Yourself): Define values once, reference everywhere
+5. Test What Matters: Focus testing on business logic and integration points
+
+### Project Structure
+
+```
+docs/
+  tasks/
+    active.md           # Current tasks
+    completed.md        # Completed tasks archive
+    backlog.md          # Future tasks and ideas
+requirements/
+  README.md             # High-level project goals and context
+src/
+test/
+  unit/
+  integration/
+```
+
+### Task Management
+
+#### Task Documentation
+
+- Location: docs/tasks/active.md
+- Format: Simple table with ID, description, status, and notes
+- Required Statuses: TODO, InProgress, Review, Done
+
+#### Task Format
+
+```markdown
+| ID  | Task                      | Status     | Notes                 |
+| --- | ------------------------- | ---------- | --------------------- |
+| T1  | Add user authentication   | InProgress | Using Clerk for OAuth |
+| T2  | Implement data validation | TODO       | Consider Zod or Yup   |
+```
+
+#### Task Rules
+
+1. One Primary Task: Focus on one main task at a time (related subtasks are fine)
+2. Clear Descriptions: Task descriptions should be specific enough to understand the scope
+3. Status Updates: Update status when starting/completing work
+4. Archive When Done: Move completed tasks to completed.md weekly
+
+### Implementation Standards
+
+#### Code Quality
+
+1. Constants for Magic Values: Any repeated or special value must be a named constant
+
+```typescript
+// Good
+const MAX_RETRY_ATTEMPTS = 3;
+for (let i = 0; i < MAX_RETRY_ATTEMPTS; i++) {...}
+
+// Bad
+for (let i = 0; i < 3; i++) {...}
+```
+
+2. External Package Documentation: For new packages, create a quick reference
+
+- Location: docs/packages/<package-name>.md
+- Content: Key API usage, configuration, and examples
+- Purpose: Avoid re-researching the same package
+
+#### Testing Strategy
+
+1. Pragmatic Testing: Test business logic and integration points, not every utility function
+2. Integration Over Unit: Focus on testing that components work together correctly
+3. Real Services in Test: Use real database/services with test data rather than heavy mocking
+
+#### Test Documentation
+
+Include a brief test plan for complex tasks:
+
+```markdown
+## Task: T5 - Payment Processing Integration
+
+### Test Plan
+
+- Unit: Payment validation logic
+- Integration: Stripe webhook handling with test events
+- E2E: Complete payment flow in test environment
+```
+
+### Change Management
+
+#### Commit Standards
+
+- Format: [T<ID>] <description>
+- Example: [T1] Add JWT token validation middleware
+- Scope: One task per commit when possible
+
+#### Code Review (Self)
+
+Before marking a task as Done:
+
+1. Run tests and ensure they pass
+2. Check that the implementation matches the task description
+3. Consider if any refactoring would improve maintainability
+4. Update documentation if APIs or behavior changed
+
+### File Creation Rules
+
+#### Controlled Creation
+
+- Don't create files outside of standard project structure without explicit purpose
+- Document new directories or file patterns in project README
+- Keep file organization consistent
+
+#### Documentation Files
+
+Only create documentation that will be actively maintained:
+
+- Package reference guides (when integrating new tools)
+- Complex business logic explanations
+- API usage examples for internal services
+
+### External Dependencies
+
+#### Package Integration Process
+
+1. Research First: Check official docs and recent issues
+2. Document Usage: Create docs/packages/<name>.md with:
+
+- Installation and basic setup
+- Key API patterns you'll use
+- Configuration examples
+- Common gotchas or limitations
+
+3. Version Lock: Pin to specific versions in production
+
+### Workflow
+
+#### Starting Work
+
+1. Pick a task from active.md
+2. Update status to InProgress
+3. Create feature branch if needed
+4. Begin implementation
+
+#### Completing Work
+
+1. Run relevant tests
+2. Update task status to Review
+3. Self-review the changes
+4. Commit with proper format
+5. Update status to Done
+6. Consider if any new tasks emerged from the work
+
+#### Weekly Maintenance
+
+1. Archive completed tasks to completed.md
+2. Review backlog and prioritize next tasks
+3. Clean up any stale branches
+4. Update project README if scope changed
+
+### AI Assistant Guidelines
+
+When working with AI coding assistants:
+
+1. Always Reference Tasks: Start requests with the relevant task ID
+2. Be Specific: Provide context about the existing codebase and patterns
+3. Review Suggestions: Don't blindly accept generated code - understand it first
+4. Iterative Approach: Break large changes into smaller, reviewable pieces
+
+### Quality Gates
+
+#### Before Committing
+
+1. Code compiles/runs without errors
+2. Relevant tests pass
+3. Task requirements are met
+4. No obvious security issues
+5. Documentation updated if needed
+
+#### Before Deploying
+
+1. All tests pass
+2. Database migrations tested (if applicable)
+3. Environment variables configured
+4. Monitoring/logging in place for new features
