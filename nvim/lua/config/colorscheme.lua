@@ -17,7 +17,7 @@ return {
       cyan = "#95bdb7",
       white = "#eaeaea",
       black = "#1d1f21",
-      comment = "#666666",
+      comment = "#828181",
       selection = "#3a3f47",
       cursor = "#bcc95f",
       -- Bright variants

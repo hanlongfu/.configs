@@ -2,6 +2,9 @@
 vim.keymap.set("n", "+", "<C-a>")
 vim.keymap.set("n", "-", "<C-x>")
 
+-- quickly save something (semi-colon)
+vim.keymap.set("n", ";", ":w<CR>", { desc = "Save file" })
+
 -- exit command history panel (accidentally by typing q:)
 -- hit <Esc> twice to exit and it will clear search highlights as well
 vim.keymap.set("n", "<Esc>", function()
