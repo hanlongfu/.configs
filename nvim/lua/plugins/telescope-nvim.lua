@@ -24,6 +24,32 @@ return { -- Fuzzy Finder (files, lsp, etc)
     { "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
   },
   config = function()
+    local pickers = require("telescope.pickers")
+    local finders = require("telescope.finders")
+    local conf = require("telescope.config").values
+
+    local function prepare_output_table()
+      local lines = {}
+      local changes = vim.fn.execute("changes")
+      for change in changes:gmatch("[^\r\n]+") do
+        table.insert(lines, change)
+      end
+      return lines
+    end
+
+    local function show_changes(opts)
+      opts = opts or {}
+      pickers
+        .new(opts, {
+          prompt_title = "Changes",
+          finder = finders.new_table({
+            results = prepare_output_table(),
+          }),
+          sorter = conf.generic_sorter(opts),
+        })
+        :find()
+    end
+
     require("telescope").setup({
       -- You can put your default mappings / updates / etc. in here
       --  All the info you're looking for is in `:help telescope.setup()`
@@ -71,8 +97,10 @@ return { -- Fuzzy Finder (files, lsp, etc)
     vim.keymap.set("n", "<leader>sl", builtin.oldfiles, { desc = 'Search Old Files ("." for repeat)' })
     vim.keymap.set("n", "<leader>sb", builtin.buffers, { desc = "Search Existing Buffers" })
 
+    vim.keymap.set("n", "<leader>sc", show_changes, { desc = "Search Changes List" })
+
     -- Slightly advanced example of overriding default behavior and theme
-    vim.keymap.set("n", "<leader>sc", function()
+    vim.keymap.set("n", "<leader>cb", function()
       -- You can pass additional configuration to telescope to change theme, layout, etc.
       builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
         winblend = 10,
