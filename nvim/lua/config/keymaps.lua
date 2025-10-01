@@ -2,6 +2,7 @@
 vim.keymap.set("n", "+", "<C-a>")
 vim.keymap.set("n", "-", "<C-x>")
 
+vim.keymap.set("n", "<CR>", ";", { desc = "forward search using f + search_term" })
 vim.keymap.set("n", ";", ":w<CR>", { desc = "Save file without quitting" })
 vim.keymap.set("n", "Z", ":wq<CR>", { desc = "Save and quit" })
 vim.keymap.set("n", "Q", ":q!<CR>", { desc = "Quit without saving" })

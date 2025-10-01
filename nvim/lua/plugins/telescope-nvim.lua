@@ -29,12 +29,27 @@ return { -- Fuzzy Finder (files, lsp, etc)
     local conf = require("telescope.config").values
 
     local function prepare_output_table()
-      local lines = {}
+      local results = {}
       local changes = vim.fn.execute("changes")
-      for change in changes:gmatch("[^\r\n]+") do
-        table.insert(lines, change)
+      local lines = vim.split(changes, "\n")
+
+      -- Skip header lines (usually first 2 lines)
+      for i = 3, #lines do
+        local line = lines[i]
+        -- Parse the change line: "  1    10    5 some text"
+        -- Format: change_number, line_number, column, text
+        local change_num, lnum, col, text = line:match("^%s*(%d+)%s+(%d+)%s+(%d+)%s*(.*)")
+        if change_num and lnum then
+          table.insert(results, {
+            display = line,
+            lnum = tonumber(lnum),
+            col = tonumber(col),
+            ordinal = line, -- what telescope searches against
+          })
+        end
       end
-      return lines
+
+      return results
     end
 
     local function show_changes(opts)
@@ -44,8 +59,34 @@ return { -- Fuzzy Finder (files, lsp, etc)
           prompt_title = "Changes",
           finder = finders.new_table({
             results = prepare_output_table(),
+            entry_maker = function(entry)
+              return {
+                value = entry,
+                display = entry.display,
+                ordinal = entry.ordinal,
+                lnum = entry.lnum,
+                col = entry.col,
+              }
+            end,
           }),
           sorter = conf.generic_sorter(opts),
+          attach_mappings = function(prompt_bufnr, map)
+            local actions = require("telescope.actions")
+            local action_state = require("telescope.actions.state")
+
+            actions.select_default:replace(function()
+              actions.close(prompt_bufnr)
+              local selection = action_state.get_selected_entry()
+              if selection and selection.lnum then
+                -- Jump to the line and column
+                vim.api.nvim_win_set_cursor(0, { selection.lnum, selection.col })
+                -- Center the screen on the cursor
+                vim.cmd("normal! zz")
+              end
+            end)
+
+            return true
+          end,
         })
         :find()
     end
