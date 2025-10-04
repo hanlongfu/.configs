@@ -19,6 +19,11 @@ vim.opt.background = "dark"
 -- record the last # of commands
 vim.opt.history = 200
 
+--- set grep to use ripgrep as backend for speed
+vim.opt.grepprg = "rg --vimgrep --no-heading --smart-case"
+--- tells neovim to parse output from grep (f-filename, l-line number, c-column number, m-match text)
+vim.opt.grepformat = "%f:%l:%c:%m"
+
 -- Make line numbers default
 vim.opt.number = true
 vim.opt.relativenumber = true
